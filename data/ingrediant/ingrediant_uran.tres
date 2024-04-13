@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Ingrediant" load_steps=2 format=3 uid="uid://cg8jhm6kt8jmq"]
+
+[ext_resource type="Script" path="res://data/ingrediant/Ingrediant.gd" id="1_q6kd4"]
+
+[resource]
+script = ExtResource("1_q6kd4")
+name = "Uran-235"
+description = "A simple Uran rod. Used for nuclear power plants or extraoridnary fireworks."

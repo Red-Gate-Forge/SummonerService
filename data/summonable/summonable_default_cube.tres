@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=11 format=3 uid="uid://d18n1d1g6nl7"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_vujgy"]
+[ext_resource type="Resource" uid="uid://fn34pc571afq" path="res://data/ingrediant/ingrediant_soul_essence.tres" id="2_idn2w"]
+[ext_resource type="Resource" uid="uid://bln202avvep85" path="res://data/ingrediant/ingridiant_brick.tres" id="2_qlm1c"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_0h1qh"]
+[ext_resource type="Script" path="res://data/summoning_steps/IncenseSummonStep.gd" id="5_0fpm3"]
+[ext_resource type="Script" path="res://data/summoning_steps/HandsignSummonStep.gd" id="6_8cgn1"]
+
+[sub_resource type="Resource" id="Resource_mfny6"]
+script = ExtResource("3_0h1qh")
+ingrediant = ExtResource("2_idn2w")
+
+[sub_resource type="Resource" id="Resource_2nxof"]
+script = ExtResource("3_0h1qh")
+ingrediant = ExtResource("2_qlm1c")
+
+[sub_resource type="Resource" id="Resource_mtcks"]
+script = ExtResource("5_0fpm3")
+count = 2
+
+[sub_resource type="Resource" id="Resource_6xv0p"]
+script = ExtResource("6_8cgn1")
+hand_signs = Array[int]([1, 0, 3, 2])
+
+[resource]
+script = ExtResource("1_vujgy")
+name = "Default Cube"
+description = "A mighty artifact with mere unmatching power."
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_mfny6"), SubResource("Resource_2nxof"), SubResource("Resource_mtcks"), SubResource("Resource_6xv0p")])

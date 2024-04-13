@@ -1,0 +1,22 @@
+# Properly detect languages on Github
+*.h linguist-language=cpp
+*.inc linguist-language=cpp
+thirdparty/* linguist-vendored
+
+# Normalize EOL for all files that Git considers text files
+* text=auto eol=lf
+# Except for bat files, which are Windows only files
+*.bat eol=crlf
+# And some test files where the EOL matters
+*.test.txt -text
+# And also the templates for Visual Studio files, which VS will always force CRLF on
+/misc/msvs/*.template eol=crlf
+
+*.dae filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.gltf filter=lfs diff=lfs merge=lfs -text
+*.glb filter=lfs diff=lfs merge=lfs -text
+*.bin filter=lfs diff=lfs merge=lfs -text
+*.png filter=lfs diff=lfs merge=lfs -text
+*.svg filter=lfs diff=lfs merge=lfs -text
+*.jpg filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=11 format=3 uid="uid://oaoge7ob6xe7"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_l0p4p"]
+[ext_resource type="Resource" uid="uid://bln202avvep85" path="res://data/ingrediant/ingridiant_brick.tres" id="2_dpp6v"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_htcuk"]
+[ext_resource type="Resource" uid="uid://cg8jhm6kt8jmq" path="res://data/ingrediant/ingrediant_uran.tres" id="4_owfcx"]
+[ext_resource type="Script" path="res://data/summoning_steps/BloodSacraficeSummonStep.gd" id="5_3xs7x"]
+[ext_resource type="Script" path="res://data/summoning_steps/HandsignSummonStep.gd" id="6_llr73"]
+
+[sub_resource type="Resource" id="Resource_yekx5"]
+script = ExtResource("3_htcuk")
+ingrediant = ExtResource("2_dpp6v")
+
+[sub_resource type="Resource" id="Resource_ub77g"]
+script = ExtResource("3_htcuk")
+ingrediant = ExtResource("4_owfcx")
+
+[sub_resource type="Resource" id="Resource_pfbuk"]
+script = ExtResource("5_3xs7x")
+count = 3
+
+[sub_resource type="Resource" id="Resource_fdqpk"]
+script = ExtResource("6_llr73")
+hand_signs = Array[int]([1, 0, 2, 1, 0, 3, 1, 0])
+
+[resource]
+script = ExtResource("1_l0p4p")
+name = "Mini Nuke"
+description = "A small thermonuclear warhead for common useage."
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_yekx5"), SubResource("Resource_ub77g"), SubResource("Resource_pfbuk"), SubResource("Resource_fdqpk")])

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SummonableCollection" load_steps=4 format=3 uid="uid://dww0q3uui7u1x"]
+
+[ext_resource type="Resource" uid="uid://d18n1d1g6nl7" path="res://data/summonable/summonable_default_cube.tres" id="1_c1fpe"]
+[ext_resource type="Script" path="res://data/summonable/SummonableCollection.gd" id="1_mw2sm"]
+[ext_resource type="Resource" uid="uid://oaoge7ob6xe7" path="res://data/summonable/summonable_mini_nuke.tres" id="2_pq12f"]
+
+[resource]
+script = ExtResource("1_mw2sm")
+collection = Array[Resource("res://data/summonable/Summonable.gd")]([ExtResource("1_c1fpe"), ExtResource("2_pq12f")])

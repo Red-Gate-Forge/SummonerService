@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://bboegh8yr7v6b"]
+
+[ext_resource type="Script" path="res://player/rituals/BloodSacraficeRitual.gd" id="1_i7vng"]
+[ext_resource type="Script" path="res://player/PlayerController.gd" id="1_juykv"]
+[ext_resource type="Script" path="res://player/rituals/HandSignRitual.gd" id="2_6ml36"]
+[ext_resource type="Script" path="res://player/rituals/HummingRitual.gd" id="3_tqk5i"]
+[ext_resource type="Script" path="res://player/rituals/IngrediantRitual.gd" id="4_akud7"]
+[ext_resource type="Script" path="res://player/rituals/IncenseRitual.gd" id="5_h63kx"]
+
+[node name="Player" type="Node3D"]
+script = ExtResource("1_juykv")
+
+[node name="Rituals" type="Node" parent="."]
+
+[node name="BloodSacraficeRitual" type="Node" parent="Rituals"]
+script = ExtResource("1_i7vng")
+
+[node name="HandSignRitual" type="Node" parent="Rituals"]
+script = ExtResource("2_6ml36")
+
+[node name="HummingRitual" type="Node" parent="Rituals"]
+script = ExtResource("3_tqk5i")
+
+[node name="IngrediantRitual" type="Node" parent="Rituals"]
+script = ExtResource("4_akud7")
+
+[node name="IncenseRitual" type="Node" parent="Rituals"]
+script = ExtResource("5_h63kx")

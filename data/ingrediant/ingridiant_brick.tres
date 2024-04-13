@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Ingrediant" load_steps=2 format=3 uid="uid://bln202avvep85"]
+
+[ext_resource type="Script" path="res://data/ingrediant/Ingrediant.gd" id="1_vbr7n"]
+
+[resource]
+script = ExtResource("1_vbr7n")
+name = "Brick"
+description = "A simple Brick"
