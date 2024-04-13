@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=12 format=3 uid="uid://cqd6cvnpjwjdc"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_n4iwq"]
+[ext_resource type="Resource" uid="uid://c051mnm6b3typ" path="res://data/ingrediant/ingrediant_gear.tres" id="2_drjx3"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_2sukn"]
+[ext_resource type="Resource" uid="uid://cxbbymofgg8wr" path="res://data/ingrediant/ingrediant_plastic_straws.tres" id="4_rvo13"]
+[ext_resource type="Script" path="res://data/summoning_steps/HummingSummonStep.gd" id="5_vn2av"]
+[ext_resource type="Script" path="res://data/summoning_steps/HummingSummonSubStep.gd" id="6_s7rys"]
+
+[sub_resource type="Resource" id="Resource_7cg5t"]
+script = ExtResource("3_2sukn")
+ingrediant = ExtResource("2_drjx3")
+
+[sub_resource type="Resource" id="Resource_77r4m"]
+script = ExtResource("3_2sukn")
+ingrediant = ExtResource("4_rvo13")
+
+[sub_resource type="Resource" id="Resource_8h2mo"]
+script = ExtResource("6_s7rys")
+tone_pitch = 2
+tone_lenght = 2
+
+[sub_resource type="Resource" id="Resource_kygvx"]
+script = ExtResource("6_s7rys")
+tone_pitch = 1
+tone_lenght = 1
+
+[sub_resource type="Resource" id="Resource_47im6"]
+script = ExtResource("5_vn2av")
+tones = Array[ExtResource("6_s7rys")]([SubResource("Resource_8h2mo"), SubResource("Resource_kygvx")])
+
+[resource]
+script = ExtResource("1_n4iwq")
+name = "Cube of Mystery"
+description = "A mysteriouse cube and also a mechanical masterpiece. Tried many times but never solved it..."
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_7cg5t"), SubResource("Resource_77r4m"), SubResource("Resource_47im6")])

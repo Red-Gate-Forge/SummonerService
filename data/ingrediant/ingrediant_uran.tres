@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_q6kd4")
+id = 2
 name = "Uran-235"
-description = "A simple Uran rod. Used for nuclear power plants or extraoridnary fireworks."
+description = "A simple uranium rod. Used for nuclear power plants or extraoridnary fireworks."

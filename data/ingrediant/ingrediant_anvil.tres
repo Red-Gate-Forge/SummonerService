@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ingrediant" load_steps=2 format=3 uid="uid://ba01mkn0tct8i"]
+
+[ext_resource type="Script" path="res://data/ingrediant/Ingrediant.gd" id="1_eegdh"]
+
+[resource]
+script = ExtResource("1_eegdh")
+id = 6
+name = "Anvil"
+description = "A giant steel block thing to forge stuff."

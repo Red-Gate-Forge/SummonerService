@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=11 format=3 uid="uid://cg42jqrc31bg"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_ly5ay"]
+[ext_resource type="Resource" uid="uid://bk4xv0w6brai0" path="res://data/ingrediant/ingrediant_incense_sticks.tres" id="2_nb6gn"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_n57rs"]
+[ext_resource type="Script" path="res://data/summoning_steps/IncenseSummonStep.gd" id="4_5kcou"]
+[ext_resource type="Script" path="res://data/summoning_steps/HandsignSummonStep.gd" id="5_b57v4"]
+[ext_resource type="Resource" uid="uid://ba01mkn0tct8i" path="res://data/ingrediant/ingrediant_anvil.tres" id="6_8r2pi"]
+
+[sub_resource type="Resource" id="Resource_70sgk"]
+script = ExtResource("3_n57rs")
+ingrediant = ExtResource("2_nb6gn")
+
+[sub_resource type="Resource" id="Resource_2lddk"]
+script = ExtResource("4_5kcou")
+count = 3
+
+[sub_resource type="Resource" id="Resource_0yogd"]
+script = ExtResource("5_b57v4")
+hand_signs = Array[int]([0, 2, 3])
+
+[sub_resource type="Resource" id="Resource_iwqe1"]
+script = ExtResource("3_n57rs")
+ingrediant = ExtResource("6_8r2pi")
+
+[resource]
+script = ExtResource("1_ly5ay")
+name = "Holy Sword"
+description = "A holy sword. Best goes with a previouse summoned hero. But who am I to give advice here...."
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_70sgk"), SubResource("Resource_2lddk"), SubResource("Resource_0yogd"), SubResource("Resource_iwqe1")])

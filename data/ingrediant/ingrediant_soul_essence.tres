@@ -4,5 +4,6 @@
 
 [resource]
 script = ExtResource("1_lv5co")
+id = 3
 name = "Soul Essence"
 description = "The leftovers of a soul, compressed into this tiny stone."

@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=16 format=3 uid="uid://dkt3m7mv2tghl"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_agcdp"]
+[ext_resource type="Resource" uid="uid://de65khjurll7m" path="res://data/ingrediant/ingrediant_voodoo_doll.tres" id="2_5tsu4"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_ranu5"]
+[ext_resource type="Resource" uid="uid://fn34pc571afq" path="res://data/ingrediant/ingrediant_soul_essence.tres" id="4_027a6"]
+[ext_resource type="Script" path="res://data/summoning_steps/HandsignSummonStep.gd" id="5_84kaw"]
+[ext_resource type="Script" path="res://data/summoning_steps/BloodSacraficeSummonStep.gd" id="6_lwv6p"]
+[ext_resource type="Script" path="res://data/summoning_steps/HummingSummonStep.gd" id="7_y5s2u"]
+[ext_resource type="Script" path="res://data/summoning_steps/HummingSummonSubStep.gd" id="8_i3gw4"]
+
+[sub_resource type="Resource" id="Resource_7bbc0"]
+script = ExtResource("3_ranu5")
+ingrediant = ExtResource("2_5tsu4")
+
+[sub_resource type="Resource" id="Resource_q7rqx"]
+script = ExtResource("3_ranu5")
+ingrediant = ExtResource("4_027a6")
+
+[sub_resource type="Resource" id="Resource_mf5du"]
+script = ExtResource("5_84kaw")
+hand_signs = Array[int]([1, 1, 3, 0, 0, 3])
+
+[sub_resource type="Resource" id="Resource_vxoma"]
+script = ExtResource("6_lwv6p")
+count = 5
+
+[sub_resource type="Resource" id="Resource_qjanu"]
+script = ExtResource("8_i3gw4")
+tone_pitch = 1
+tone_lenght = 1
+
+[sub_resource type="Resource" id="Resource_r8ce7"]
+script = ExtResource("8_i3gw4")
+tone_pitch = 0
+tone_lenght = 1
+
+[sub_resource type="Resource" id="Resource_vneog"]
+script = ExtResource("7_y5s2u")
+tones = Array[ExtResource("8_i3gw4")]([SubResource("Resource_qjanu"), SubResource("Resource_r8ce7")])
+
+[resource]
+script = ExtResource("1_agcdp")
+name = "Greater Demon"
+description = "You know what you asked for. I don't wanna hear any complaints afterwards!"
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_7bbc0"), SubResource("Resource_q7rqx"), SubResource("Resource_mf5du"), SubResource("Resource_vxoma"), SubResource("Resource_vneog")])

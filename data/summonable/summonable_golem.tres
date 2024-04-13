@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=13 format=3 uid="uid://bk6q04a1j468j"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_4n2k8"]
+[ext_resource type="Resource" uid="uid://de65khjurll7m" path="res://data/ingrediant/ingrediant_voodoo_doll.tres" id="2_kh0yp"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_m3ies"]
+[ext_resource type="Script" path="res://data/summoning_steps/BloodSacraficeSummonStep.gd" id="4_j83ux"]
+[ext_resource type="Resource" uid="uid://bln202avvep85" path="res://data/ingrediant/ingridiant_brick.tres" id="5_7g6oh"]
+[ext_resource type="Script" path="res://data/summoning_steps/HandsignSummonStep.gd" id="6_8ycij"]
+[ext_resource type="Resource" uid="uid://c051mnm6b3typ" path="res://data/ingrediant/ingrediant_gear.tres" id="7_yxgtc"]
+
+[sub_resource type="Resource" id="Resource_hv3x6"]
+script = ExtResource("3_m3ies")
+ingrediant = ExtResource("2_kh0yp")
+
+[sub_resource type="Resource" id="Resource_0jqgp"]
+script = ExtResource("4_j83ux")
+count = 7
+
+[sub_resource type="Resource" id="Resource_aauhk"]
+script = ExtResource("3_m3ies")
+ingrediant = ExtResource("5_7g6oh")
+
+[sub_resource type="Resource" id="Resource_idu6m"]
+script = ExtResource("6_8ycij")
+hand_signs = Array[int]([2, 3, 2, 3, 0])
+
+[sub_resource type="Resource" id="Resource_ainlk"]
+script = ExtResource("3_m3ies")
+ingrediant = ExtResource("7_yxgtc")
+
+[resource]
+script = ExtResource("1_4n2k8")
+name = "Golem"
+description = "Comes in handy if you have to move... Or you have heavy groceries that need a lift up your appartment."
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_hv3x6"), SubResource("Resource_0jqgp"), SubResource("Resource_aauhk"), SubResource("Resource_idu6m"), SubResource("Resource_ainlk")])

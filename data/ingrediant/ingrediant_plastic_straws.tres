@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ingrediant" load_steps=2 format=3 uid="uid://cxbbymofgg8wr"]
+
+[ext_resource type="Script" path="res://data/ingrediant/Ingrediant.gd" id="1_ibaqg"]
+
+[resource]
+script = ExtResource("1_ibaqg")
+id = 9
+name = "Bundle of Plastic Straws"
+description = "Handy to drink cold or hot stuff. But since they're forbidden to sold they can only be obtained on the black market."

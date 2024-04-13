@@ -25,7 +25,8 @@ func end_ritual():
 	print("Ending ritual " + str(current_ritual) + "...")
 	var current_ritual_instance = resolve_ritual(current_ritual)
 	await current_ritual_instance.end()
-	RitualManager.get_instance().on_ritual_complete(current_ritual_instance)
+	if current_ritual_instance.performed:
+		RitualManager.get_instance().on_ritual_complete(current_ritual_instance)
 	current_ritual = Ritual.Type.NONE
 	print("Ritual ended.")
 
@@ -52,4 +53,6 @@ func _input(event):
 			start_ritual(Ritual.Type.HUMMING)
 		elif event.is_action_pressed("ritual_blood_sacrafice_begin"):
 			start_ritual(Ritual.Type.BLOOD_SACRAFICE)
+		elif event.is_action_pressed("ritual_ingrediant_begin"):
+			start_ritual(Ritual.Type.INGREDIANT)
 

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=11 format=3 uid="uid://blwgteyjco4tr"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_pjhjf"]
+[ext_resource type="Resource" uid="uid://bln202avvep85" path="res://data/ingrediant/ingridiant_brick.tres" id="2_vk7v6"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_ffxfn"]
+[ext_resource type="Resource" uid="uid://cxbbymofgg8wr" path="res://data/ingrediant/ingrediant_plastic_straws.tres" id="4_0xooh"]
+[ext_resource type="Resource" uid="uid://bk4xv0w6brai0" path="res://data/ingrediant/ingrediant_incense_sticks.tres" id="5_03oqm"]
+[ext_resource type="Script" path="res://data/summoning_steps/IncenseSummonStep.gd" id="6_7qqg6"]
+
+[sub_resource type="Resource" id="Resource_2fxwn"]
+script = ExtResource("3_ffxfn")
+ingrediant = ExtResource("2_vk7v6")
+
+[sub_resource type="Resource" id="Resource_p8sp4"]
+script = ExtResource("3_ffxfn")
+ingrediant = ExtResource("4_0xooh")
+
+[sub_resource type="Resource" id="Resource_8kw1x"]
+script = ExtResource("3_ffxfn")
+ingrediant = ExtResource("5_03oqm")
+
+[sub_resource type="Resource" id="Resource_8ehyi"]
+script = ExtResource("6_7qqg6")
+count = 4
+
+[resource]
+script = ExtResource("1_pjhjf")
+name = "Cheeseburger"
+description = "A Cheeseburger..."
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_2fxwn"), SubResource("Resource_p8sp4"), SubResource("Resource_8kw1x"), SubResource("Resource_8ehyi")])

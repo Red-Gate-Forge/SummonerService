@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ingrediant" load_steps=2 format=3 uid="uid://c051mnm6b3typ"]
+
+[ext_resource type="Script" path="res://data/ingrediant/Ingrediant.gd" id="1_gt6m6"]
+
+[resource]
+script = ExtResource("1_gt6m6")
+id = 5
+name = "Gear"
+description = "A simple gear used in mechanical constraptions."

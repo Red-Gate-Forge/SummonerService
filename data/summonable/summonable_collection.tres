@@ -1,9 +1,17 @@
-[gd_resource type="Resource" script_class="SummonableCollection" load_steps=4 format=3 uid="uid://dww0q3uui7u1x"]
+[gd_resource type="Resource" script_class="SummonableCollection" load_steps=12 format=3 uid="uid://dww0q3uui7u1x"]
 
 [ext_resource type="Resource" uid="uid://d18n1d1g6nl7" path="res://data/summonable/summonable_default_cube.tres" id="1_c1fpe"]
 [ext_resource type="Script" path="res://data/summonable/SummonableCollection.gd" id="1_mw2sm"]
 [ext_resource type="Resource" uid="uid://oaoge7ob6xe7" path="res://data/summonable/summonable_mini_nuke.tres" id="2_pq12f"]
+[ext_resource type="Resource" uid="uid://cg42jqrc31bg" path="res://data/summonable/summonable_holy_sword.tres" id="3_w2sos"]
+[ext_resource type="Resource" uid="uid://blwgteyjco4tr" path="res://data/summonable/summonable_cheeseburger.tres" id="4_4v03d"]
+[ext_resource type="Resource" uid="uid://cn2qr22k2oprh" path="res://data/summonable/summonable_hero.tres" id="5_b5dmf"]
+[ext_resource type="Resource" uid="uid://bk6q04a1j468j" path="res://data/summonable/summonable_golem.tres" id="6_ejfwv"]
+[ext_resource type="Resource" uid="uid://cqd6cvnpjwjdc" path="res://data/summonable/summonable_rubix_cube.tres" id="7_1iyps"]
+[ext_resource type="Resource" uid="uid://dgrqwrpv7hpyw" path="res://data/summonable/summonable_ghost.tres" id="8_gfsgk"]
+[ext_resource type="Resource" uid="uid://dkt3m7mv2tghl" path="res://data/summonable/summonable_greater_demon.tres" id="9_g711x"]
+[ext_resource type="Resource" uid="uid://dv4nyleiwgmnm" path="res://data/summonable/summonable_lesser_demon.tres" id="10_xioeq"]
 
 [resource]
 script = ExtResource("1_mw2sm")
-collection = Array[Resource("res://data/summonable/Summonable.gd")]([ExtResource("1_c1fpe"), ExtResource("2_pq12f")])
+collection = Array[Resource("res://data/summonable/Summonable.gd")]([ExtResource("1_c1fpe"), ExtResource("2_pq12f"), ExtResource("3_w2sos"), ExtResource("4_4v03d"), ExtResource("5_b5dmf"), ExtResource("6_ejfwv"), ExtResource("7_1iyps"), ExtResource("8_gfsgk"), ExtResource("9_g711x"), ExtResource("10_xioeq")])

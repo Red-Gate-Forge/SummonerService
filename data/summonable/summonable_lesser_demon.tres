@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=12 format=3 uid="uid://dv4nyleiwgmnm"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_c44rk"]
+[ext_resource type="Resource" uid="uid://de65khjurll7m" path="res://data/ingrediant/ingrediant_voodoo_doll.tres" id="2_tiop3"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_e7eec"]
+[ext_resource type="Resource" uid="uid://fn34pc571afq" path="res://data/ingrediant/ingrediant_soul_essence.tres" id="4_hh06f"]
+[ext_resource type="Script" path="res://data/summoning_steps/HummingSummonStep.gd" id="5_j46b2"]
+[ext_resource type="Script" path="res://data/summoning_steps/HummingSummonSubStep.gd" id="6_lhjnn"]
+
+[sub_resource type="Resource" id="Resource_k8mnr"]
+script = ExtResource("3_e7eec")
+ingrediant = ExtResource("2_tiop3")
+
+[sub_resource type="Resource" id="Resource_uqvlb"]
+script = ExtResource("3_e7eec")
+ingrediant = ExtResource("4_hh06f")
+
+[sub_resource type="Resource" id="Resource_oywt6"]
+script = ExtResource("6_lhjnn")
+tone_pitch = 0
+tone_lenght = 1
+
+[sub_resource type="Resource" id="Resource_0yp40"]
+script = ExtResource("6_lhjnn")
+tone_pitch = 2
+tone_lenght = 0
+
+[sub_resource type="Resource" id="Resource_o3diq"]
+script = ExtResource("5_j46b2")
+tones = Array[ExtResource("6_lhjnn")]([SubResource("Resource_oywt6"), SubResource("Resource_0yp40")])
+
+[resource]
+script = ExtResource("1_c44rk")
+name = "Lesser Demon"
+description = "It may be small. But don't underestimate it!"
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_k8mnr"), SubResource("Resource_uqvlb"), SubResource("Resource_o3diq")])

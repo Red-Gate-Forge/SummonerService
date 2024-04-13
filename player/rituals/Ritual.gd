@@ -1,3 +1,4 @@
+## Base class for all Ritual Handlers
 class_name Ritual extends Node
 
 enum Type {NONE, HAND_SIGN, HUMMING, INCENSE, INGREDIANT, BLOOD_SACRAFICE}
@@ -6,19 +7,18 @@ signal on_success
 signal on_failure
 
 var active: bool = false
+var performed: bool = false
 
 func begin():
     active = true
+    performed = false
 
 func end():
     active = false
+    performed = true
 
-func get_result() -> ResultData:
-    var result = ResultData.new()
-    result.ritual_id = 0
-    result.payload = null
-    return result
+func get_type() -> Ritual.Type:
+    return Type.NONE
 
-class ResultData:
-    var ritual_id: int
-    var payload
+func compare_requirement(requirement: SummonStep) -> bool:
+    return false

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ingrediant" load_steps=2 format=3 uid="uid://bk4xv0w6brai0"]
+
+[ext_resource type="Script" path="res://data/ingrediant/Ingrediant.gd" id="1_18dhn"]
+
+[resource]
+script = ExtResource("1_18dhn")
+id = 10
+name = "Incense Sticks"
+description = "Great smell. Greater demonic protection."

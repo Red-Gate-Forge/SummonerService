@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=11 format=3 uid="uid://cn2qr22k2oprh"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_efcbb"]
+[ext_resource type="Resource" uid="uid://de65khjurll7m" path="res://data/ingrediant/ingrediant_voodoo_doll.tres" id="2_7plsi"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_g3eak"]
+[ext_resource type="Resource" uid="uid://lict0mwyxlaf" path="res://data/ingrediant/ingrediant_crystal_ball.tres" id="4_smibx"]
+[ext_resource type="Script" path="res://data/summoning_steps/HandsignSummonStep.gd" id="5_ikbfw"]
+[ext_resource type="Resource" uid="uid://fn34pc571afq" path="res://data/ingrediant/ingrediant_soul_essence.tres" id="6_ltfkg"]
+
+[sub_resource type="Resource" id="Resource_1wl2c"]
+script = ExtResource("3_g3eak")
+ingrediant = ExtResource("2_7plsi")
+
+[sub_resource type="Resource" id="Resource_s0yr1"]
+script = ExtResource("3_g3eak")
+ingrediant = ExtResource("4_smibx")
+
+[sub_resource type="Resource" id="Resource_6vooh"]
+script = ExtResource("5_ikbfw")
+hand_signs = Array[int]([0, 3, 3])
+
+[sub_resource type="Resource" id="Resource_44til"]
+script = ExtResource("3_g3eak")
+ingrediant = ExtResource("6_ltfkg")
+
+[resource]
+script = ExtResource("1_efcbb")
+name = "Hero"
+description = "A hero summoned from another realm, with possible no experience in the field you wanne employ them whatsoever. He is probably on an op isekai mission and nothing will stop him."
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_1wl2c"), SubResource("Resource_s0yr1"), SubResource("Resource_6vooh"), SubResource("Resource_44til")])

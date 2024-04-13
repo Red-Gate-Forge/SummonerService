@@ -1,25 +1,11 @@
-class_name  HandSignRitual extends Ritual
+extends Ritual
 
-enum HandSign { UP, DOWN, LEFT, RIGHT }
+var hand_signs: Array[RitualUtils.HandSign] = []
 
-var hand_signs: Array[HandSign] = []
 
-func begin():
-    super.begin()
-    hand_signs.clear();
 
-func end():
-    super.end()
-    print("Hand Signs Performed: " + str(hand_signs))
-
-func get_result() -> ResultData:
-    var result = ResultData.new()
-    result.ritual_id = Ritual.Type.HAND_SIGN
-    result.payload = hand_signs
-
-    return result
-
-func perform_hand_sign(hand_sign: HandSign):
+func perform_hand_sign(hand_sign: RitualUtils.HandSign):
+    performed = true
     hand_signs.append(hand_sign)
     print(hand_sign)
     await get_tree().create_timer(0.5).timeout
@@ -29,10 +15,44 @@ func _input(event):
         return
 
     if event.is_action_pressed("ritual_handsign_up"):
-        await perform_hand_sign(HandSign.UP)
+        perform_hand_sign(RitualUtils.HandSign.UP)
     elif event.is_action_pressed("ritual_handsign_down"):
-        await perform_hand_sign(HandSign.DOWN)
+        perform_hand_sign(RitualUtils.HandSign.DOWN)
     elif event.is_action_pressed("ritual_handsign_left"):
-        await perform_hand_sign(HandSign.LEFT)
+        perform_hand_sign(RitualUtils.HandSign.LEFT)
     elif event.is_action_pressed("ritual_handsign_right"):
-        await perform_hand_sign(HandSign.RIGHT)
+        perform_hand_sign(RitualUtils.HandSign.RIGHT)
+
+## Ritual Type Interface BEGIN ##
+
+func begin(): #override
+    super.begin()
+    hand_signs.clear();
+
+func end(): #override
+    super.end()
+    print("Hand Signs Performed: " + str(hand_signs))
+
+func get_type() -> Ritual.Type: #override
+    return Type.HAND_SIGN
+
+func compare_requirement(requirement: SummonStep) -> bool: #override
+    var hand_sign_requirement = requirement as HandsignSummonStep
+    if hand_sign_requirement == null:
+        print("HandsignSummonStep is null")
+        return false
+
+    var required_signs = hand_sign_requirement.get_content() as Array[RitualUtils.HandSign]
+
+    if required_signs.size() != hand_signs.size():
+        print("Handsign count does not match")
+        return false
+
+    for i in range(required_signs.size()):
+        if required_signs[i] != hand_signs[i]:
+            print("Handsign do not match, Index: " + str(i) + " Required: " + str(required_signs[i]) + " Performed: " + str(hand_signs[i]) + " ")
+            return false
+
+    return true
+
+## Ritual Type Interface END ##
