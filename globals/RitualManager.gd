@@ -5,6 +5,10 @@ static var instance: RitualManager = null
 static func get_instance() -> RitualManager:
 	return instance
 
+signal on_summon_failed
+signal on_summon_proceeds
+signal on_summon_succeeded(summonable: Summonable)
+
 var summon_collection: SummonableCollection = null
 var current_collection: Array[Summonable] = []
 var current_ritual_count: int = 0
@@ -65,17 +69,19 @@ func on_ritual_complete(ritual: Ritual):
 
 
 func summon_failed():
-	print("Summon failed")
+	print("Summon failed. No possible summon left. Reset.")
 	reset_summon_process()
+	emit_signal("on_summon_failed")
 
 func summon_proceeds():
-	print("Summon proceeds")
+	print("Summon proceeds. Possible summons left: " + str(current_collection.size()))
 	current_ritual_count += 1
+	emit_signal("on_summon_proceeds")
 
 func summon_succeeded():
-	print("Summon of " + current_summon.name + " was successful")
-
+	print("Summon of " + current_summon.name + " was successful. Reset.")
 	reset_summon_process()
+	emit_signal("on_summon_succeeded", current_summon)
 
 func reset_summon_process():
 	current_collection = summon_collection.clone_collection()

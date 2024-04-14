@@ -1,7 +1,7 @@
 ## Base class for all Ritual Handlers
 class_name Ritual extends Node
 
-enum Type {NONE, HAND_SIGN, HUMMING, INCENSE, INGREDIANT, BLOOD_SACRAFICE}
+enum Type { NONE, HAND_SIGN, HUMMING, INCENSE, INGREDIANT, BLOOD_SACRAFICE }
 
 signal on_success
 signal on_failure
