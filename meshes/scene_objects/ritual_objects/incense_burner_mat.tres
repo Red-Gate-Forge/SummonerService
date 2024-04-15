@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cr04dindaewlp"]
+
+[ext_resource type="Shader" uid="uid://c86f5vdet468m" path="res://shader/incense_burner_surface.tres" id="1_pmbbf"]
+[ext_resource type="Texture2D" uid="uid://bl5k6b03wn3po" path="res://meshes/scene_objects/ritual_objects/incense_burner_diffuse.jpg" id="2_gw120"]
+[ext_resource type="Texture2D" uid="uid://sqbm58sxkl5b" path="res://meshes/scene_objects/ritual_objects/incense_burner_emission.png" id="3_aj8rj"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_pmbbf")
+shader_parameter/EmissionColorOne = Vector3(1, 0, 0)
+shader_parameter/EmissionColorTwo = Vector3(1, 1, 0)
+shader_parameter/BaseColor = ExtResource("2_gw120")
+shader_parameter/EmissionMap = ExtResource("3_aj8rj")

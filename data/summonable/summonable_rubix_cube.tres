@@ -31,6 +31,7 @@ tones = Array[ExtResource("6_s7rys")]([SubResource("Resource_8h2mo"), SubResourc
 
 [resource]
 script = ExtResource("1_n4iwq")
+id = 3
 name = "Cube of Mystery"
 description = "A mysteriouse cube and also a mechanical masterpiece. Tried many times but never solved it..."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_7cg5t"), SubResource("Resource_77r4m"), SubResource("Resource_47im6")])

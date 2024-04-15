@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwqsje31rsicv"]
+
+[ext_resource type="Shader" path="res://shader/pixelate_postprocessing.gdshader" id="1_lrsvy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fcjwu"]
+shader = ExtResource("1_lrsvy")
+shader_parameter/pixel_size = 1.0
+
+[node name="PostProcessing" type="Node"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_fcjwu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_fcjwu")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

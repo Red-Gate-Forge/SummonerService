@@ -25,6 +25,7 @@ count = 4
 
 [resource]
 script = ExtResource("1_pjhjf")
+id = 1
 name = "Cheeseburger"
 description = "A Cheeseburger..."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_2fxwn"), SubResource("Resource_p8sp4"), SubResource("Resource_8kw1x"), SubResource("Resource_8ehyi")])

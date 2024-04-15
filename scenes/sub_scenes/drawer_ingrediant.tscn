@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://jwcel7sgioey"]
+
+[ext_resource type="Script" path="res://scenes/sub_scenes/drawer_ingrediant.gd" id="1_jm66u"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ba8fh"]
+size = Vector3(0.25, 0.0808105, 0.25)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k2u27"]
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.533333, 0.533333, 0.533333, 1)
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_i5lr3"]
+font_size = 72
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mlr15"]
+size = Vector2(0.2, 0.05)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_ourc6"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p11iq"]
+resource_local_to_scene = true
+albedo_texture = SubResource("ViewportTexture_ourc6")
+
+[node name="DrawerIngrediant" type="Node3D"]
+script = ExtResource("1_jm66u")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00480168, 0)
+shape = SubResource("BoxShape3D_ba8fh")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SubViewport" type="SubViewport" parent="."]
+size = Vector2i(512, 100)
+
+[node name="Panel" type="Panel" parent="SubViewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_k2u27")
+
+[node name="CenterContainer" type="CenterContainer" parent="SubViewport/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -22.5
+offset_right = 58.0
+offset_bottom = 22.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="SubViewport/Panel/CenterContainer"]
+layout_mode = 2
+text = "[NAME]"
+label_settings = SubResource("LabelSettings_i5lr3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMesh" type="CSGMesh3D" parent="."]
+transform = Transform3D(-3.96933e-08, -0.418802, -0.908077, -1.83064e-08, 0.908077, -0.418802, 1, 0, -4.37114e-08, 0.136192, 0.153553, 0)
+mesh = SubResource("PlaneMesh_mlr15")
+material = SubResource("StandardMaterial3D_p11iq")
+
+[node name="Light" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.225661, 0)
+visible = false
+light_color = Color(0.65098, 1, 1, 1)
+light_energy = 0.679
+light_indirect_energy = 0.807
+omni_range = 0.304566
+
+[connection signal="mouse_entered" from="Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="." method="_on_area_3d_mouse_exited"]

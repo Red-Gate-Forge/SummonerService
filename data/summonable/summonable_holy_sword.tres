@@ -25,6 +25,7 @@ ingrediant = ExtResource("6_8r2pi")
 
 [resource]
 script = ExtResource("1_ly5ay")
+id = 9
 name = "Holy Sword"
 description = "A holy sword. Best goes with a previouse summoned hero. But who am I to give advice here...."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_70sgk"), SubResource("Resource_2lddk"), SubResource("Resource_0yogd"), SubResource("Resource_iwqe1")])

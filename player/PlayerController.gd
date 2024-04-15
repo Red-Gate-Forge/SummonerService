@@ -1,5 +1,7 @@
 extends Node3D
 
+signal on_ritual_begin(ritual: Ritual.Type)
+signal on_ritual_end(ritual: Ritual.Type)
 
 var current_ritual: int = Ritual.Type.NONE
 
@@ -23,6 +25,7 @@ func end_ritual():
 		return
 	
 	print("Ending ritual " + str(current_ritual) + "...")
+	on_ritual_end.emit(current_ritual)
 	var current_ritual_instance = resolve_ritual(current_ritual)
 	await current_ritual_instance.end()
 	if current_ritual_instance.performed:
@@ -31,6 +34,7 @@ func end_ritual():
 	print("Ritual ended.")
 
 func start_ritual(ritual_id: int):
+	on_ritual_begin.emit(ritual_id)
 	if current_ritual != Ritual.Type.NONE:
 		await end_ritual()
 

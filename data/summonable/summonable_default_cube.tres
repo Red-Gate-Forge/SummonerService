@@ -25,6 +25,7 @@ hand_signs = Array[int]([1, 0, 3, 2])
 
 [resource]
 script = ExtResource("1_vujgy")
+id = 2
 name = "Default Cube"
 description = "A mighty artifact with mere unmatching power."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_mfny6"), SubResource("Resource_2nxof"), SubResource("Resource_mtcks"), SubResource("Resource_6xv0p")])

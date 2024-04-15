@@ -41,6 +41,7 @@ tones = Array[ExtResource("9_taouj")]([SubResource("Resource_eqr1l")])
 
 [resource]
 script = ExtResource("1_1bwm2")
+id = 4
 name = "Ghost"
 description = "Grabdma... is that you?"
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_pp4e7"), SubResource("Resource_3eu0r"), SubResource("Resource_yx1x7"), SubResource("Resource_3c7gw"), SubResource("Resource_2hat3"), SubResource("Resource_vwtrw")])

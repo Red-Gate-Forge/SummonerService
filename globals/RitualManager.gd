@@ -13,6 +13,7 @@ var summon_collection: SummonableCollection = null
 var current_collection: Array[Summonable] = []
 var current_ritual_count: int = 0
 var current_summon: Summonable = null
+var filter_list: Array[Summonable] = []
 
 func _ready():
 	if instance != null:
@@ -22,26 +23,30 @@ func _ready():
 	instance = self
 	load_summon_collection()
 	reset_summon_process()
+	print("RitualManager ready")
 
 		
 func load_summon_collection():
 	var collection = load("res://data/summonable/summonable_collection.tres") as SummonableCollection
 	summon_collection = collection
 
+func remove_filtered():
+	for summon in filter_list:
+		var index = current_collection.find(summon)
+		current_collection.remove_at(index)
+
+	filter_list.clear()
 
 func on_ritual_complete(ritual: Ritual):
-	## Filter out summons that don't match the ritual
-	var filter_list: Array[Summonable] = []
+	## Filter out summons that don't match the ritual type
 	for summon in current_collection:
 		if summon.steps.size() <= current_ritual_count:
 			filter_list.append(summon)
 			continue
 		if summon.steps[current_ritual_count].get_type() != ritual.get_type():
 			filter_list.append(summon)
-	
-	for summon in filter_list:
-		var index = current_collection.find(summon)
-		current_collection.remove_at(index)
+
+	remove_filtered()
 
 	## Abort if no summons left
 	if current_collection.is_empty():
@@ -49,18 +54,27 @@ func on_ritual_complete(ritual: Ritual):
 		summon_failed()
 		return
 
+
+	var passed = false
 	## perform requirement comparison for each summon
 	for summon in current_collection:
 		var requirement = summon.steps[current_ritual_count]
-		var passed = ritual.compare_requirement(requirement)
+		if ritual.compare_requirement(requirement):
+			passed = true
+		else:
+			filter_list.append(summon)
+
 		if passed:
 			if current_ritual_count == summon.steps.size() - 1:
 				current_summon = summon
 				summon_succeeded()
 				return
 
-			summon_proceeds()
-			return
+	remove_filtered()
+
+	if passed:
+		summon_proceeds()
+		return
 
 	## If no summon step passed, fail the summon
 	print("Matching summon step found but failed requirement comparison")

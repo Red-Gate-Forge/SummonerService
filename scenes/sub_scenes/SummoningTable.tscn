@@ -1,0 +1,43 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlidjl5dqbcaf"]
+
+[ext_resource type="Script" path="res://scenes/sub_scenes/summoning_table.gd" id="1_5ql8h"]
+[ext_resource type="PackedScene" uid="uid://6d0glr1odanw" path="res://meshes/scene_objects/summoning_table/summoning_table.glb" id="1_hk0nt"]
+[ext_resource type="PackedScene" uid="uid://jewydbggktfm" path="res://scenes/sub_scenes/drawer_container.tscn" id="5_3b2xq"]
+[ext_resource type="AudioStream" uid="uid://cvu70grukyjnn" path="res://audio/rituals/ingrediant/drawer/open_drawer.wav" id="5_jchuc"]
+[ext_resource type="AudioStream" uid="uid://dke0vb4yicv4r" path="res://audio/rituals/ingrediant/drawer/close_drawer.wav" id="6_5517y"]
+[ext_resource type="PackedScene" uid="uid://cbmx3s3b0cnmw" path="res://meshes/scene_objects/summoning_table/summoning_circle.glb" id="7_gxv6b"]
+[ext_resource type="PackedScene" uid="uid://bq7emkpbfixox" path="res://meshes/scene_objects/summoning_table/candles.glb" id="8_1krov"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kgkpm"]
+size = Vector3(1.99005, 0.0705625, 4.43268)
+
+[node name="SummoningTable" type="Node3D"]
+script = ExtResource("1_5ql8h")
+
+[node name="summoning_table" parent="." instance=ExtResource("1_hk0nt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25811, 0)
+
+[node name="drawer" type="Node3D" parent="summoning_table"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.945257, -0.13269, 0.00362849)
+
+[node name="open_drawer_audio" type="AudioStreamPlayer3D" parent="summoning_table/drawer"]
+stream = ExtResource("5_jchuc")
+bus = &"Object Effects"
+
+[node name="close_drawer_audio" type="AudioStreamPlayer3D" parent="summoning_table/drawer"]
+stream = ExtResource("6_5517y")
+bus = &"Object Effects"
+
+[node name="drawer_container" parent="summoning_table/drawer" instance=ExtResource("5_3b2xq")]
+
+[node name="summoning_circle" parent="summoning_table" instance=ExtResource("7_gxv6b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0785041, 0)
+
+[node name="candles" parent="summoning_table/summoning_circle" instance=ExtResource("8_1krov")]
+transform = Transform3D(0.868181, 0, -0.496247, 0, 1, 0, 0.496247, 0, 0.868181, 0, 0.0759141, 0)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000396729, 1.25363, -0.00234985)
+shape = SubResource("BoxShape3D_kgkpm")

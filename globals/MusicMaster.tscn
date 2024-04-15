@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://hjjqt4ksgwmc"]
+
+[ext_resource type="Script" path="res://globals/MusicMaster.gd" id="1_scu7s"]
+[ext_resource type="AudioStream" uid="uid://cg046dlhicml" path="res://audio/ambient/ambient_main.wav" id="2_7u85r"]
+
+[node name="MusicMaster" type="Node"]
+script = ExtResource("1_scu7s")
+
+[node name="AmbientMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7u85r")
+bus = &"Music"
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

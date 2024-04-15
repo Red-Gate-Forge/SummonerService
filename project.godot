@@ -11,13 +11,20 @@ config_version=5
 [application]
 
 config/name="SummoningService"
-run/main_scene="res://player/Player.tscn"
+run/main_scene="res://scenes/GameWorld.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="res://audio/main_audio_bus.tres"
+driver/output_latency=30
 
 [autoload]
 
 RitualManagerInstance="*res://globals/RitualManager.gd"
+MusicMaster="*res://globals/MusicMaster.tscn"
+PostProcessing="*res://globals/PostProcessing.tscn"
 
 [editor_plugins]
 
@@ -100,5 +107,5 @@ ritual_humming_dox={
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+textures/canvas_textures/default_texture_filter=2
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

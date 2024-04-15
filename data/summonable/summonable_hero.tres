@@ -25,6 +25,7 @@ ingrediant = ExtResource("6_ltfkg")
 
 [resource]
 script = ExtResource("1_efcbb")
+id = 8
 name = "Hero"
 description = "A hero summoned from another realm, with possible no experience in the field you wanne employ them whatsoever. He is probably on an op isekai mission and nothing will stop him."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_1wl2c"), SubResource("Resource_s0yr1"), SubResource("Resource_6vooh"), SubResource("Resource_44til")])

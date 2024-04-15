@@ -25,6 +25,7 @@ hand_signs = Array[int]([1, 0, 2, 1, 0, 3, 1, 0])
 
 [resource]
 script = ExtResource("1_l0p4p")
+id = 10
 name = "Mini Nuke"
 description = "A small thermonuclear warhead for common useage."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_yekx5"), SubResource("Resource_ub77g"), SubResource("Resource_pfbuk"), SubResource("Resource_fdqpk")])

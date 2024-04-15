@@ -1,3 +1,139 @@
-[gd_scene format=3 uid="uid://dobueadpmjlmf"]
+[gd_scene load_steps=22 format=3 uid="uid://dobueadpmjlmf"]
 
-[node name="MainLevel" type="Node3D"]
+[ext_resource type="Script" path="res://game/GameManager.gd" id="1_t5fik"]
+[ext_resource type="PackedScene" uid="uid://bboegh8yr7v6b" path="res://player/Player.tscn" id="2_3p3ny"]
+[ext_resource type="Script" path="res://globals/RitualManager.gd" id="2_qouut"]
+[ext_resource type="PackedScene" uid="uid://dlidjl5dqbcaf" path="res://scenes/sub_scenes/SummoningTable.tscn" id="3_yxcfc"]
+[ext_resource type="Script" path="res://player/rituals/BloodSacraficeRitual.gd" id="4_i071c"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3D.gd" id="4_oqxjy"]
+[ext_resource type="Script" path="res://player/rituals/HandSignRitual.gd" id="5_6mr5u"]
+[ext_resource type="Script" path="res://scenes/camera_holder.gd" id="5_8be3i"]
+[ext_resource type="Script" path="res://player/rituals/HummingRitual.gd" id="6_a3uie"]
+[ext_resource type="Resource" uid="uid://b2cetbkcs4x1r" path="res://scenes/camera_tween_parameter.tres" id="7_0n4yn"]
+[ext_resource type="AudioStream" uid="uid://mwol41tsfcne" path="res://audio/rituals/humming/astri_full.wav" id="7_3u62t"]
+[ext_resource type="AudioStream" uid="uid://841sidpg1lmp" path="res://audio/rituals/humming/sak_full.wav" id="8_6im5q"]
+[ext_resource type="PackedScene" uid="uid://cxv2hpakde2b7" path="res://meshes/scene_objects/ritual_objects/incense_burner.glb" id="8_bowjl"]
+[ext_resource type="Resource" uid="uid://badunwtfrqh76" path="res://scenes/camera_resource.tres" id="8_bsjq6"]
+[ext_resource type="AudioStream" uid="uid://dk1dmttedj4bx" path="res://audio/rituals/humming/dox_full.wav" id="9_gxste"]
+[ext_resource type="PackedScene" uid="uid://mh3afwehqycq" path="res://meshes/scene_objects/ritual_objects/offering_knife.glb" id="9_nwsaf"]
+[ext_resource type="Script" path="res://player/rituals/hide_on_ritual.gd" id="10_7ikd2"]
+[ext_resource type="Script" path="res://player/rituals/IngrediantRitual.gd" id="10_tm3ci"]
+[ext_resource type="Script" path="res://player/rituals/IncenseRitual.gd" id="11_ft31g"]
+[ext_resource type="PackedScene" uid="uid://dw88swhqsvqem" path="res://scenes/sub_scenes/player_hands_pointing.tscn" id="13_pnig7"]
+[ext_resource type="PackedScene" uid="uid://bv72nl0p5e4k7" path="res://scenes/sub_scenes/player_hands_idling.tscn" id="20_n8ga2"]
+
+[node name="GameWorld" type="Node3D"]
+script = ExtResource("1_t5fik")
+
+[node name="RitualManager" type="Node" parent="."]
+script = ExtResource("2_qouut")
+
+[node name="Player" parent="." instance=ExtResource("2_3p3ny")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00610816, 2.17229, 1.8067)
+
+[node name="Rituals" type="Node" parent="Player"]
+
+[node name="BloodSacraficeRitual" type="Node" parent="Player/Rituals"]
+script = ExtResource("4_i071c")
+
+[node name="HandSignRitual" type="Node" parent="Player/Rituals"]
+script = ExtResource("5_6mr5u")
+
+[node name="HummingRitual" type="Node" parent="Player/Rituals"]
+script = ExtResource("6_a3uie")
+
+[node name="Astri" type="AudioStreamPlayer" parent="Player/Rituals/HummingRitual"]
+stream = ExtResource("7_3u62t")
+bus = &"Humming Effects"
+
+[node name="Sak" type="AudioStreamPlayer" parent="Player/Rituals/HummingRitual"]
+stream = ExtResource("8_6im5q")
+bus = &"Humming Effects"
+
+[node name="Dox" type="AudioStreamPlayer" parent="Player/Rituals/HummingRitual"]
+stream = ExtResource("9_gxste")
+bus = &"Humming Effects"
+
+[node name="IngrediantRitual" type="Node" parent="Player/Rituals"]
+script = ExtResource("10_tm3ci")
+
+[node name="IncenseRitual" type="Node" parent="Player/Rituals"]
+script = ExtResource("11_ft31g")
+
+[node name="SummoningTable" parent="." instance=ExtResource("3_yxcfc")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+drawer_open_offset = -1.2
+
+[node name="point_target" type="Node3D" parent="SummoningTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02116, 1.29085, 0.100118)
+
+[node name="player_hands_pointing" parent="SummoningTable/point_target" instance=ExtResource("13_pnig7")]
+transform = Transform3D(1.31134e-06, 10, -4.37114e-07, 0, -4.37114e-07, -10, -10, 1.31134e-06, -5.73206e-14, -1.39929, 0.218282, -0.252407)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.227413, 2.35314, 0.125138)
+light_color = Color(1, 0.882353, 0.411765, 1)
+
+[node name="CameraHolder" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.64951, 1.07607)
+script = ExtResource("5_8be3i")
+
+[node name="DefaultCamera" type="Node3D" parent="CameraHolder"]
+transform = Transform3D(1, 0, 0, 0, 0.544639, 0.83867, 0, -0.83867, 0.544639, 0, 0.00747561, 0.164366)
+script = ExtResource("4_oqxjy")
+priority_override = false
+priority = 10
+follow_mode = 0
+look_at_mode = 0
+tween_parameters = ExtResource("7_0n4yn")
+tween_on_load = true
+inactive_update_mode = 0
+camera_3D_resource = ExtResource("8_bsjq6")
+
+[node name="DrawerCamera" type="Node3D" parent="CameraHolder"]
+transform = Transform3D(1, 0, 0, 0, 0.0911366, 0.995838, 0, -0.995838, 0.0911366, -0.0377548, -0.229857, 0.635298)
+script = ExtResource("4_oqxjy")
+priority_override = false
+priority = 0
+follow_mode = 0
+look_at_mode = 0
+tween_parameters = ExtResource("7_0n4yn")
+tween_on_load = false
+inactive_update_mode = 0
+camera_3D_resource = ExtResource("8_bsjq6")
+
+[node name="CustomerCamera" type="Node3D" parent="CameraHolder"]
+transform = Transform3D(1, -7.49242e-05, 0.000451, 0.000135509, 0.990725, -0.135882, -0.000436637, 0.135882, 0.990725, 0, 0.00747561, -0.0351722)
+script = ExtResource("4_oqxjy")
+priority_override = false
+priority = 0
+follow_mode = 0
+look_at_mode = 0
+tween_parameters = ExtResource("7_0n4yn")
+tween_on_load = false
+inactive_update_mode = 0
+camera_3D_resource = null
+
+[node name="incense_burner" parent="." instance=ExtResource("8_bowjl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1351, 1.21299, -0.332607)
+script = ExtResource("10_7ikd2")
+ritual = 3
+
+[node name="offering_knife" parent="." instance=ExtResource("9_nwsaf")]
+transform = Transform3D(-0.760814, 0, 0.64897, 0, 1, 0, -0.64897, 0, -0.760814, 1.25316, 1.08844, 0.233689)
+script = ExtResource("10_7ikd2")
+ritual = 5
+
+[node name="player_hands" parent="." instance=ExtResource("20_n8ga2")]
+transform = Transform3D(-10, -8.74228e-07, 3.82137e-14, 0, -4.37114e-07, -10, 8.74228e-07, -10, 4.37114e-07, 0, 1.56508, 1.797)
+visible = false
+
+[connection signal="on_ritual_begin" from="Player" to="SummoningTable" method="_on_ritual_begin"]
+[connection signal="on_ritual_begin" from="Player" to="CameraHolder" method="_on_ritual_begin"]
+[connection signal="on_ritual_begin" from="Player" to="incense_burner" method="_on_ritual_begin"]
+[connection signal="on_ritual_begin" from="Player" to="offering_knife" method="_on_ritual_begin"]
+[connection signal="on_ritual_end" from="Player" to="SummoningTable" method="_on_ritual_end"]
+[connection signal="on_ritual_end" from="Player" to="CameraHolder" method="_on_ritual_end"]
+[connection signal="on_ritual_end" from="Player" to="incense_burner" method="_on_ritual_end"]
+[connection signal="on_ritual_end" from="Player" to="offering_knife" method="_on_ritual_end"]
+[connection signal="on_ingrediant_selection_change" from="SummoningTable" to="Player/Rituals/IngrediantRitual" method="_on_ingrediant_selection_change"]
