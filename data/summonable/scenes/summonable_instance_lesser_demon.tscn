@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://8b6u40xbpha5"]
+
+[ext_resource type="PackedScene" uid="uid://dveko5tqg0kix" path="res://data/summonable/scenes/summonable_instance.tscn" id="1_28u15"]
+[ext_resource type="PackedScene" uid="uid://bbbga6j34x0g7" path="res://meshes/summonables/lesser_demon.glb" id="2_k7q4h"]
+
+[node name="SummonableInstance_Lesser_Demon" instance=ExtResource("1_28u15")]
+
+[node name="lesser_demon" parent="." index="0" instance=ExtResource("2_k7q4h")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

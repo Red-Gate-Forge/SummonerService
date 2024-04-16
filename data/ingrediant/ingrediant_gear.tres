@@ -7,3 +7,4 @@ script = ExtResource("1_gt6m6")
 id = 5
 name = "Gear"
 description = "A simple gear used in mechanical constraptions."
+object_path = "res://data/ingrediant/scenes/ingrediant_instance_gear.tscn"

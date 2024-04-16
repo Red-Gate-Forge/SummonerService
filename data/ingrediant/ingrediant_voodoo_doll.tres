@@ -7,3 +7,4 @@ script = ExtResource("1_d7uas")
 id = 4
 name = "Voodoo Doll"
 description = "A Doll used for binding a physical entity into this realm."
+object_path = "res://data/ingrediant/scenes/ingrediant_instance_voodoo_doll.tscn"

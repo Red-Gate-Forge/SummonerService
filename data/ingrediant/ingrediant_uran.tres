@@ -7,3 +7,4 @@ script = ExtResource("1_q6kd4")
 id = 2
 name = "Uran-235"
 description = "A simple uranium rod. Used for nuclear power plants or extraoridnary fireworks."
+object_path = "res://data/ingrediant/scenes/ingrediant_instance_uran.tscn"

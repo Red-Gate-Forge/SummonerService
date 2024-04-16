@@ -21,11 +21,13 @@ count = 2
 
 [sub_resource type="Resource" id="Resource_6xv0p"]
 script = ExtResource("6_8cgn1")
-hand_signs = Array[int]([1, 0, 3, 2])
+hand_signs = Array[int]([1, 0, 3, 1])
 
 [resource]
 script = ExtResource("1_vujgy")
 id = 2
+spawnable_path = "res://data/summonable/scenes/summonable_instance_default_cube.tscn"
+icon_path = "res://data/summonable/icons/default_cube_icon.png"
 name = "Default Cube"
 description = "A mighty artifact with mere unmatching power."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_mfny6"), SubResource("Resource_2nxof"), SubResource("Resource_mtcks"), SubResource("Resource_6xv0p")])

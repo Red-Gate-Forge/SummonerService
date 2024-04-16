@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dobueadpmjlmf"]
+[gd_scene load_steps=45 format=3 uid="uid://dobueadpmjlmf"]
 
 [ext_resource type="Script" path="res://game/GameManager.gd" id="1_t5fik"]
 [ext_resource type="PackedScene" uid="uid://bboegh8yr7v6b" path="res://player/Player.tscn" id="2_3p3ny"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3D.gd" id="4_oqxjy"]
 [ext_resource type="Script" path="res://player/rituals/HandSignRitual.gd" id="5_6mr5u"]
 [ext_resource type="Script" path="res://scenes/camera_holder.gd" id="5_8be3i"]
+[ext_resource type="AudioStream" uid="uid://n71dvvmm7yjr" path="res://audio/rituals/blood_sacrafice/blood_sacrafice_drip.wav" id="5_kaqw0"]
 [ext_resource type="Script" path="res://player/rituals/HummingRitual.gd" id="6_a3uie"]
 [ext_resource type="Resource" uid="uid://b2cetbkcs4x1r" path="res://scenes/camera_tween_parameter.tres" id="7_0n4yn"]
 [ext_resource type="AudioStream" uid="uid://mwol41tsfcne" path="res://audio/rituals/humming/astri_full.wav" id="7_3u62t"]
@@ -18,9 +19,49 @@
 [ext_resource type="PackedScene" uid="uid://mh3afwehqycq" path="res://meshes/scene_objects/ritual_objects/offering_knife.glb" id="9_nwsaf"]
 [ext_resource type="Script" path="res://player/rituals/hide_on_ritual.gd" id="10_7ikd2"]
 [ext_resource type="Script" path="res://player/rituals/IngrediantRitual.gd" id="10_tm3ci"]
+[ext_resource type="AudioStream" uid="uid://c3l2eelycly1a" path="res://audio/rituals/ingrediant/place_ingrediant.wav" id="11_3tqtl"]
 [ext_resource type="Script" path="res://player/rituals/IncenseRitual.gd" id="11_ft31g"]
 [ext_resource type="PackedScene" uid="uid://dw88swhqsvqem" path="res://scenes/sub_scenes/player_hands_pointing.tscn" id="13_pnig7"]
+[ext_resource type="AudioStream" uid="uid://cl5crvhgwjqb5" path="res://audio/rituals/incense/incense_pulse.wav" id="14_kopem"]
 [ext_resource type="PackedScene" uid="uid://bv72nl0p5e4k7" path="res://scenes/sub_scenes/player_hands_idling.tscn" id="20_n8ga2"]
+[ext_resource type="PackedScene" uid="uid://dqdlcrngwsyj4" path="res://meshes/scene_objects/ritual_objects/chain_incense_burner.glb" id="20_sgrtj"]
+[ext_resource type="Script" path="res://scenes/incense_burner_holder.gd" id="21_ofrdd"]
+[ext_resource type="Script" path="res://scenes/sub_scenes/player_hands_idling.gd" id="24_cxfa2"]
+[ext_resource type="PackedScene" uid="uid://bei3bwyp4j5bf" path="res://meshes/scene_objects/ritual_objects/Book.glb" id="28_cmcoq"]
+[ext_resource type="PackedScene" uid="uid://bscm1ktyqmgun" path="res://meshes/scene_objects/ritual_objects/Pearlchain.glb" id="29_0rvds"]
+[ext_resource type="Script" path="res://scenes/summon_spawner.gd" id="29_don3g"]
+[ext_resource type="Texture2D" uid="uid://cbitpvpo4lc4r" path="res://ui/sprites/book_ui_background.png" id="29_e2lln"]
+[ext_resource type="Script" path="res://scenes/clickable_object.gd" id="29_md1ys"]
+[ext_resource type="AudioStream" uid="uid://bujkyrgki8gdo" path="res://audio/summon/summon_good.wav" id="30_2wfwu"]
+[ext_resource type="Script" path="res://scenes/book.gd" id="30_o884i"]
+[ext_resource type="Script" path="res://ui/scenes/summonable_list.gd" id="31_3tyju"]
+[ext_resource type="AudioStream" uid="uid://cffa838p5ughx" path="res://audio/summon/summon_failed.wav" id="31_hl1yn"]
+[ext_resource type="Texture2D" uid="uid://boub18qyx01gk" path="res://data/summonable/icons/nuke_icon.png" id="37_luath"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hu3le"]
+size = Vector3(0.0524063, 0.238037, 1.50684)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_klhvx"]
+size = Vector3(0.667122, 0.130707, 0.124348)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2engb"]
+radius = 0.0166283
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8opl5"]
+radius = 0.204191
+height = 0.749211
+
+[sub_resource type="Environment" id="Environment_ojvba"]
+glow_enabled = true
+glow_intensity = 2.25
+glow_bloom = 0.1
+fog_light_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_bpb1s"]
+radius = 1.11358
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_61r30"]
+size = Vector3(0.535889, 0.0823364, 0.360199)
 
 [node name="GameWorld" type="Node3D"]
 script = ExtResource("1_t5fik")
@@ -35,12 +76,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00610816, 2.17229, 1.8067)
 
 [node name="BloodSacraficeRitual" type="Node" parent="Player/Rituals"]
 script = ExtResource("4_i071c")
+anim_hands_path = "res://scenes/sub_scenes/player_hands_blood_offering.tscn"
+
+[node name="drip_audio" type="AudioStreamPlayer" parent="Player/Rituals/BloodSacraficeRitual"]
+stream = ExtResource("5_kaqw0")
 
 [node name="HandSignRitual" type="Node" parent="Player/Rituals"]
 script = ExtResource("5_6mr5u")
+anim_hands_path = "res://scenes/sub_scenes/player_hands_hand_signs.tscn"
 
 [node name="HummingRitual" type="Node" parent="Player/Rituals"]
 script = ExtResource("6_a3uie")
+anim_hands_path = "res://scenes/sub_scenes/player_hands_humming.tscn"
 
 [node name="Astri" type="AudioStreamPlayer" parent="Player/Rituals/HummingRitual"]
 stream = ExtResource("7_3u62t")
@@ -57,8 +104,22 @@ bus = &"Humming Effects"
 [node name="IngrediantRitual" type="Node" parent="Player/Rituals"]
 script = ExtResource("10_tm3ci")
 
+[node name="place_audio" type="AudioStreamPlayer" parent="Player/Rituals/IngrediantRitual"]
+stream = ExtResource("11_3tqtl")
+volume_db = -2.447
+bus = &"Object Effects"
+
 [node name="IncenseRitual" type="Node" parent="Player/Rituals"]
 script = ExtResource("11_ft31g")
+anim_hands_path = "res://scenes/sub_scenes/player_hands_incense.tscn"
+
+[node name="pulse_audio" type="AudioStreamPlayer" parent="Player/Rituals/IncenseRitual"]
+stream = ExtResource("14_kopem")
+volume_db = -5.302
+bus = &"Object Effects"
+
+[node name="hand_slot" type="Node3D" parent="Player"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.436099, -0.392511)
 
 [node name="SummoningTable" parent="." instance=ExtResource("3_yxcfc")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -68,10 +129,22 @@ drawer_open_offset = -1.2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02116, 1.29085, 0.100118)
 
 [node name="player_hands_pointing" parent="SummoningTable/point_target" instance=ExtResource("13_pnig7")]
-transform = Transform3D(1.31134e-06, 10, -4.37114e-07, 0, -4.37114e-07, -10, -10, 1.31134e-06, -5.73206e-14, -1.39929, 0.218282, -0.252407)
+transform = Transform3D(1.28988e-06, 9.75458, -2.20187, -1.92493e-07, -2.20187, -9.75458, -10, 1.30061e-06, -9.62468e-08, -1.39929, 0.462318, -0.252407)
+
+[node name="ClickableObject" type="Area3D" parent="SummoningTable"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.09861, 1.28883, -4.8022e-08)
+script = ExtResource("29_md1ys")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SummoningTable/ClickableObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0781196, -0.168926, 0.00883103)
+shape = SubResource("BoxShape3D_hu3le")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.227413, 2.35314, 0.125138)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13862, 2.35314, 0.125138)
+light_color = Color(1, 0.882353, 0.411765, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.227413, 2.8969, 2.15811)
 light_color = Color(1, 0.882353, 0.411765, 1)
 
 [node name="CameraHolder" type="Node3D" parent="."]
@@ -114,26 +187,283 @@ tween_on_load = false
 inactive_update_mode = 0
 camera_3D_resource = null
 
-[node name="incense_burner" parent="." instance=ExtResource("8_bowjl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1351, 1.21299, -0.332607)
-script = ExtResource("10_7ikd2")
-ritual = 3
-
 [node name="offering_knife" parent="." instance=ExtResource("9_nwsaf")]
-transform = Transform3D(-0.760814, 0, 0.64897, 0, 1, 0, -0.64897, 0, -0.760814, 1.25316, 1.08844, 0.233689)
+transform = Transform3D(-0.824887, 0, -0.565298, 0, 1, 0, 0.565298, 0, -0.824887, -1.12358, 1.08844, 0.394169)
 script = ExtResource("10_7ikd2")
 ritual = 5
 
+[node name="ClickableObject" type="Area3D" parent="offering_knife"]
+transform = Transform3D(-0.0377252, 0, 0.999288, 0, 1, 0, -0.999288, 0, -0.0377252, 0.0257509, 0.245726, -0.272199)
+script = ExtResource("29_md1ys")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="offering_knife/ClickableObject"]
+transform = Transform3D(1, 0, -2.98023e-08, 0, 1, 0, 2.98023e-08, 0, 1, -0.0400603, -0.0343895, -0.0237019)
+shape = SubResource("BoxShape3D_klhvx")
+
 [node name="player_hands" parent="." instance=ExtResource("20_n8ga2")]
 transform = Transform3D(-10, -8.74228e-07, 3.82137e-14, 0, -4.37114e-07, -10, 8.74228e-07, -10, 4.37114e-07, 0, 1.56508, 1.797)
-visible = false
+script = ExtResource("24_cxfa2")
 
+[node name="ClickableObject" type="Area3D" parent="player_hands"]
+transform = Transform3D(-0.0377252, 0, 0.999288, 0, 1, 0, -0.999288, 0, -0.0377252, 0, 0, 0)
+script = ExtResource("29_md1ys")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_hands/ClickableObject"]
+transform = Transform3D(1, 9.30267e-10, -4.47035e-08, -9.31163e-10, 1, -8.73257e-12, 1.11759e-08, 2.6489e-11, 1, -0.0234561, 0.0921126, 0.0441678)
+shape = SubResource("SphereShape3D_2engb")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="player_hands/ClickableObject"]
+transform = Transform3D(1, 9.30253e-10, -4.09782e-08, -9.31163e-10, 1, -8.71836e-12, 1.49012e-08, 2.65459e-11, 1, -0.0200261, 0.0921126, -0.0466874)
+shape = SubResource("SphereShape3D_2engb")
+
+[node name="incense_burner_holder" type="Node3D" parent="."]
+transform = Transform3D(0.997939, -0.0641665, 0, 0.0641665, 0.997939, 0, 0, 0, 1, -0.685288, 2.73125, 0.469262)
+script = ExtResource("21_ofrdd")
+
+[node name="incense_burner" parent="incense_burner_holder" instance=ExtResource("8_bowjl")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.984029, 0)
+script = ExtResource("10_7ikd2")
+ritual = 3
+
+[node name="chain_incense_burner" parent="incense_burner_holder/incense_burner" instance=ExtResource("20_sgrtj")]
+
+[node name="ClickableObject" type="Area3D" parent="incense_burner_holder/incense_burner"]
+transform = Transform3D(-0.0377252, 0, 0.999288, 0, 1, 0, -0.999288, 0, -0.0377252, 0, 0, 0)
+script = ExtResource("29_md1ys")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="incense_burner_holder/incense_burner/ClickableObject"]
+transform = Transform3D(1, 9.30329e-10, -5.21541e-08, -9.31157e-10, 1, -8.78357e-12, 2.98023e-08, 2.6332e-11, 1, 0, 0.325, 0)
+shape = SubResource("CapsuleShape3D_8opl5")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ojvba")
+
+[node name="Pearlchain" parent="." instance=ExtResource("29_0rvds")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.17803, 1.29908, -0.144325)
+script = ExtResource("10_7ikd2")
+ritual = 2
+
+[node name="ClickableObject" type="Area3D" parent="Pearlchain"]
+transform = Transform3D(-0.0377252, 0, 0.999288, 0, 1, 0, -0.999288, 0, -0.0377252, 0, 0, 0)
+script = ExtResource("29_md1ys")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pearlchain/ClickableObject"]
+transform = Transform3D(1, 9.30329e-10, -5.21541e-08, -9.31157e-10, 1, -8.78357e-12, 3.35276e-08, 2.6332e-11, 1, -0.0967995, -0.0281687, -0.00365448)
+shape = SubResource("SphereShape3D_bpb1s")
+
+[node name="Book" parent="." instance=ExtResource("28_cmcoq")]
+transform = Transform3D(0.73514, 0, 0.677916, 0, 1, 0, -0.677916, 0, 0.73514, 1.01604, 1.32522, 0.648344)
+
+[node name="ClickableObject" type="Area3D" parent="Book"]
+script = ExtResource("29_md1ys")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Book/ClickableObject"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00948176, -0.00156772, -0.0102119)
+shape = SubResource("BoxShape3D_61r30")
+
+[node name="SummonSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0142117, 1.28668, 0)
+script = ExtResource("29_don3g")
+
+[node name="summon_good_audio" type="AudioStreamPlayer" parent="SummonSpawner"]
+stream = ExtResource("30_2wfwu")
+volume_db = -10.0
+bus = &"Effects Master"
+
+[node name="summon_failed_audio" type="AudioStreamPlayer" parent="SummonSpawner"]
+stream = ExtResource("31_hl1yn")
+volume_db = -10.0
+bus = &"Effects Master"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_priority = 10
+layer = -10
+
+[node name="UI" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="Book" type="Control" parent="CanvasLayer/UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("30_o884i")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/UI/Book"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 60.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("29_e2lln")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="RitualList" type="RichTextLabel" parent="CanvasLayer/UI/Book/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.120056
+anchor_right = 0.5
+anchor_bottom = 0.841808
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+bbcode_enabled = true
+text = "Hello and welcome to the summoner service business!
+
+To summon an object you have to perform specific rituals in a specific order. Below is a description of all rituals you can perform.
+On the right page is a list of all objects you can summon as well as their specific instructions.
+
+[b]Rituals[/b]
+[i]All rituals have an object on the table to activate as well as a shortcut key.
+All rituals can be ended with [b]'SPACE'[/b] [/i]
+
+[b]Add ingredient  ritual[/b]
+[i]Press [b]'V'[/b] or click the drawer in the bottom of the screen to open it.
+Hover over the ingredient you want to add and press [b]'SPACE'[/b] to confirm[/i]
+
+[b]Blood sacrifice ritual[/b]
+[i]Press [b]'F'[/b] or click on the knife to start donating blood.
+ Press [b]'SPACE'[/b] to stop the ritual[/i]
+
+[b]Incense burner ritual[/b]
+[i]Press [b]'C'[/b] or click on the incense burner (that thing on the chain) to start the ritual.
+Press [b]'SPACE'[/b] to stop the ritual[/i]
+
+[b]Hand sign ritual[/b]
+[i]Press [b]'E'[/b] or click on the hands on the table to start the ritual.
+Use [b](WSAD)[/b] to perform the signs as written in the instructions with arrows.
+Press [b]'SPACE'[/b] to stop the ritual[/i]
+
+[b]Humming ritual[/b]
+[i]Press [b]'Q'[/b] or click on the prayer beads to start the ritual.
+Use [b](ASD)[/b] to perform the singing as written in the instructions.
+[/i][b]A[/b]STRI - ('A' Key)
+[b]S[/b]AK - ('S' Key)
+[b]D[/b]OX[i] - ('D' Key)
+The lenght, described as WHOLE, HALF and QUARTER, means how long the tone must be played.
+The pentagram will glow everytime the next lenght is reached.[/i]
+QUARTER: one time glow
+HALF: glows two times
+WHOLE: glows three times
+[i]Press [b]'SPACE'[/b] to stop the ritual[/i]
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="SummonableList" type="RichTextLabel" parent="CanvasLayer/UI/Book/TextureRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.510726
+anchor_top = 0.111582
+anchor_right = 0.766502
+anchor_bottom = 0.84887
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 36
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+bbcode_enabled = true
+script = ExtResource("31_3tyju")
+summon_collection = "res://data/summonable/summonable_collection.tres"
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/UI/Book/TextureRect"]
+visible = false
+layout_mode = 1
+anchor_left = 0.247525
+anchor_top = 0.125706
+anchor_right = 0.494224
+anchor_bottom = 0.340395
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Book/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 32
+text = "Current Summon Order:"
+horizontal_alignment = 1
+
+[node name="SummonOrderIcon" type="TextureRect" parent="CanvasLayer/UI/Book/TextureRect/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 38.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("37_luath")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CanvasLayer/UI/Book"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 48.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 27
+text = "PRESS 'SPACE' TO CLOSE THE BOOK"
+horizontal_alignment = 1
+
+[connection signal="on_summon_failed" from="RitualManager" to="SummonSpawner" method="_on_summon_failed"]
+[connection signal="on_summon_reset" from="RitualManager" to="SummoningTable" method="_on_summon_reset"]
+[connection signal="on_summon_succeeded" from="RitualManager" to="SummonSpawner" method="_on_summon_succeeded"]
+[connection signal="on_close_book" from="Player" to="CanvasLayer/UI/Book" method="_on_close_book"]
+[connection signal="on_open_book" from="Player" to="CanvasLayer/UI/Book" method="_on_open_book"]
 [connection signal="on_ritual_begin" from="Player" to="SummoningTable" method="_on_ritual_begin"]
 [connection signal="on_ritual_begin" from="Player" to="CameraHolder" method="_on_ritual_begin"]
-[connection signal="on_ritual_begin" from="Player" to="incense_burner" method="_on_ritual_begin"]
 [connection signal="on_ritual_begin" from="Player" to="offering_knife" method="_on_ritual_begin"]
+[connection signal="on_ritual_begin" from="Player" to="player_hands" method="_on_ritual_begin"]
+[connection signal="on_ritual_begin" from="Player" to="incense_burner_holder/incense_burner" method="_on_ritual_begin"]
+[connection signal="on_ritual_begin" from="Player" to="Pearlchain" method="_on_ritual_begin"]
 [connection signal="on_ritual_end" from="Player" to="SummoningTable" method="_on_ritual_end"]
 [connection signal="on_ritual_end" from="Player" to="CameraHolder" method="_on_ritual_end"]
-[connection signal="on_ritual_end" from="Player" to="incense_burner" method="_on_ritual_end"]
 [connection signal="on_ritual_end" from="Player" to="offering_knife" method="_on_ritual_end"]
+[connection signal="on_ritual_end" from="Player" to="player_hands" method="_on_ritual_end"]
+[connection signal="on_ritual_end" from="Player" to="incense_burner_holder/incense_burner" method="_on_ritual_end"]
+[connection signal="on_ritual_end" from="Player" to="Pearlchain" method="_on_ritual_end"]
 [connection signal="on_ingrediant_selection_change" from="SummoningTable" to="Player/Rituals/IngrediantRitual" method="_on_ingrediant_selection_change"]
+[connection signal="mouse_entered" from="SummoningTable/ClickableObject" to="SummoningTable/ClickableObject" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SummoningTable/ClickableObject" to="SummoningTable/ClickableObject" method="_on_mouse_exited"]
+[connection signal="on_click" from="SummoningTable/ClickableObject" to="Player" method="_on_click_drawer"]
+[connection signal="mouse_entered" from="offering_knife/ClickableObject" to="offering_knife/ClickableObject" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="offering_knife/ClickableObject" to="offering_knife/ClickableObject" method="_on_mouse_exited"]
+[connection signal="on_click" from="offering_knife/ClickableObject" to="Player" method="_on_click_knife"]
+[connection signal="mouse_entered" from="player_hands/ClickableObject" to="player_hands/ClickableObject" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="player_hands/ClickableObject" to="player_hands/ClickableObject" method="_on_mouse_exited"]
+[connection signal="on_click" from="player_hands/ClickableObject" to="Player" method="_on_click_hands"]
+[connection signal="mouse_entered" from="incense_burner_holder/incense_burner/ClickableObject" to="incense_burner_holder/incense_burner/ClickableObject" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="incense_burner_holder/incense_burner/ClickableObject" to="incense_burner_holder/incense_burner/ClickableObject" method="_on_mouse_exited"]
+[connection signal="on_click" from="incense_burner_holder/incense_burner/ClickableObject" to="Player" method="_on_click_incense"]
+[connection signal="mouse_entered" from="Pearlchain/ClickableObject" to="Pearlchain/ClickableObject" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Pearlchain/ClickableObject" to="Pearlchain/ClickableObject" method="_on_mouse_exited"]
+[connection signal="on_click" from="Pearlchain/ClickableObject" to="Player" method="_on_click_prayerchain"]
+[connection signal="mouse_entered" from="Book/ClickableObject" to="Book/ClickableObject" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Book/ClickableObject" to="Book/ClickableObject" method="_on_mouse_exited"]
+[connection signal="on_click" from="Book/ClickableObject" to="Player" method="_on_click_book"]

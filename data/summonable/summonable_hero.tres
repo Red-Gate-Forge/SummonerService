@@ -17,7 +17,7 @@ ingrediant = ExtResource("4_smibx")
 
 [sub_resource type="Resource" id="Resource_6vooh"]
 script = ExtResource("5_ikbfw")
-hand_signs = Array[int]([0, 3, 3])
+hand_signs = Array[int]([0, 1, 3])
 
 [sub_resource type="Resource" id="Resource_44til"]
 script = ExtResource("3_g3eak")
@@ -26,6 +26,8 @@ ingrediant = ExtResource("6_ltfkg")
 [resource]
 script = ExtResource("1_efcbb")
 id = 8
+spawnable_path = ""
+icon_path = "res://data/summonable/icons/hero_icon.png"
 name = "Hero"
 description = "A hero summoned from another realm, with possible no experience in the field you wanne employ them whatsoever. He is probably on an op isekai mission and nothing will stop him."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_1wl2c"), SubResource("Resource_s0yr1"), SubResource("Resource_6vooh"), SubResource("Resource_44til")])

@@ -8,6 +8,7 @@ static func get_instance() -> RitualManager:
 signal on_summon_failed
 signal on_summon_proceeds
 signal on_summon_succeeded(summonable: Summonable)
+signal on_summon_reset
 
 var summon_collection: SummonableCollection = null
 var current_collection: Array[Summonable] = []
@@ -100,3 +101,4 @@ func summon_succeeded():
 func reset_summon_process():
 	current_collection = summon_collection.clone_collection()
 	current_ritual_count = 0
+	on_summon_reset.emit()

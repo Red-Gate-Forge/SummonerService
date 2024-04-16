@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b35usbq57rbjv"]
+
+[ext_resource type="PackedScene" uid="uid://bfeqr33ovmvip" path="res://data/ingrediant/scenes/IngrediantInstance.tscn" id="1_p1e0l"]
+[ext_resource type="PackedScene" uid="uid://j7sil73f12l6" path="res://meshes/ingrediants/Anvil.glb" id="2_yyk5x"]
+
+[node name="ingrediant_instance_anvil" instance=ExtResource("1_p1e0l")]
+initial_scale = 0.3
+destination_scale = 0.8
+
+[node name="ObjectContainer" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Anvil" parent="ObjectContainer" index="0" instance=ExtResource("2_yyk5x")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

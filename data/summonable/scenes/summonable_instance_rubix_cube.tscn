@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0kphjgijke50"]
+
+[ext_resource type="PackedScene" uid="uid://dveko5tqg0kix" path="res://data/summonable/scenes/summonable_instance.tscn" id="1_k7c8h"]
+[ext_resource type="PackedScene" uid="uid://fvscrca3b44f" path="res://meshes/summonables/Rubix Cube.glb" id="2_7fvt5"]
+
+[node name="SummonableInstance_Rubix_Cube" instance=ExtResource("1_k7c8h")]
+
+[node name="Rubix Cube" parent="." index="0" instance=ExtResource("2_7fvt5")]
+transform = Transform3D(0.141421, 0, -0.141421, 0, 0.2, 0, 0.141421, 0, 0.141421, 0, 0.21, 0)

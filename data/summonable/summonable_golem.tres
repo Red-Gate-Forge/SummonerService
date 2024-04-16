@@ -31,6 +31,8 @@ ingrediant = ExtResource("7_yxgtc")
 [resource]
 script = ExtResource("1_4n2k8")
 id = 5
+spawnable_path = "res://data/summonable/scenes/summonable_instance_golem.tscn"
+icon_path = "res://data/summonable/icons/golem_icon.png"
 name = "Golem"
 description = "Comes in handy if you have to move... Or you have heavy groceries that need a lift up your appartment."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_hv3x6"), SubResource("Resource_0jqgp"), SubResource("Resource_aauhk"), SubResource("Resource_idu6m"), SubResource("Resource_ainlk")])

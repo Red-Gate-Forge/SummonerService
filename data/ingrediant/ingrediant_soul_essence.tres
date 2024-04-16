@@ -7,3 +7,4 @@ script = ExtResource("1_lv5co")
 id = 3
 name = "Soul Essence"
 description = "The leftovers of a soul, compressed into this tiny stone."
+object_path = "res://data/ingrediant/scenes/ingrediant_instance_soul_essence.tscn"

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3aufx8yovce1"]
+
+[ext_resource type="PackedScene" uid="uid://bfeqr33ovmvip" path="res://data/ingrediant/scenes/IngrediantInstance.tscn" id="1_0wtk2"]
+[ext_resource type="PackedScene" uid="uid://d1ovlgegwmygv" path="res://meshes/ingrediants/voodoo_puppet.glb" id="2_ogvbq"]
+
+[node name="ingrediant_instance_voodoo_doll" instance=ExtResource("1_0wtk2")]
+initial_scale = 0.5
+destination_scale = 1.0
+
+[node name="ObjectContainer" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="voodoo_puppet" parent="ObjectContainer" index="0" instance=ExtResource("2_ogvbq")]
+transform = Transform3D(0.0539393, -0.998544, 0, 0.998544, 0.0539393, 0, 0, 0, 1, 0.320602, 0.0318527, 0)

@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bfc2a5lko1b7f"]
+
+[ext_resource type="Shader" uid="uid://7g0gnnn1cvxj" path="res://shader/pentagram_surface.tres" id="1_4ux4a"]
+[ext_resource type="Texture2D" uid="uid://bhphkwqpff3h0" path="res://meshes/scene_objects/summoning_table/summoning_circle_Summoning Circle.png" id="2_7lb8s"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_4ux4a")
+shader_parameter/PentagramMask = ExtResource("2_7lb8s")

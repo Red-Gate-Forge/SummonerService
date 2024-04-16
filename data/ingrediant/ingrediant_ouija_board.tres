@@ -7,3 +7,4 @@ script = ExtResource("1_v812c")
 id = 7
 name = "Ouija Board"
 description = "Useful to communicate with entities in other realms."
+object_path = "res://data/ingrediant/scenes/ingrediant_instance_ouija_board.tscn"

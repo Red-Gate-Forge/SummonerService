@@ -7,3 +7,4 @@ script = ExtResource("1_18dhn")
 id = 10
 name = "Incense Sticks"
 description = "Great smell. Greater demonic protection."
+object_path = "res://data/ingrediant/scenes/ingrediant_instance_incense_sticks.tscn"

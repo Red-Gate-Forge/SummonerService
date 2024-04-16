@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmy2rj38k6uik"]
+
+[ext_resource type="PackedScene" uid="uid://dveko5tqg0kix" path="res://data/summonable/scenes/summonable_instance.tscn" id="1_jlydg"]
+[ext_resource type="PackedScene" uid="uid://dcg1fpbgtt60x" path="res://meshes/summonables/Ghost.glb" id="2_em6pi"]
+
+[node name="SummonableInstance_Ghost" instance=ExtResource("1_jlydg")]
+
+[node name="Ghost" parent="." index="0" instance=ExtResource("2_em6pi")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.055, 0)

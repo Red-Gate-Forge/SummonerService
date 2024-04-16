@@ -5,3 +5,6 @@ func get_type() -> Ritual.Type:
 
 func get_content():
     pass
+
+func get_instruction_text() -> String:
+    return ""

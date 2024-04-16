@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b358xc75h6uen"]
+
+[ext_resource type="PackedScene" uid="uid://dveko5tqg0kix" path="res://data/summonable/scenes/summonable_instance.tscn" id="1_5xjdd"]
+[ext_resource type="PackedScene" uid="uid://nh5dlitoeoon" path="res://meshes/summonables/Holy Sword.glb" id="2_qnu6s"]
+
+[node name="SummonableInstance_Holy_Sword" instance=ExtResource("1_5xjdd")]
+
+[node name="Holy Sword" parent="." index="0" instance=ExtResource("2_qnu6s")]
+transform = Transform3D(0.8, 0, 0, 0, -3.49691e-08, 0.8, 0, -0.8, -3.49691e-08, 0, 0.169774, 0.457425)

@@ -7,3 +7,4 @@ script = ExtResource("1_eegdh")
 id = 6
 name = "Anvil"
 description = "A giant steel block thing to forge stuff."
+object_path = "res://data/ingrediant/scenes/ingrediant_instance_anvil.tscn"

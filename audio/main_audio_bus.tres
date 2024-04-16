@@ -1,4 +1,8 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://tmnvyqhqfx1f"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://tmnvyqhqfx1f"]
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_mlrpj"]
+resource_name = "Reverb"
+wet = 1.0
 
 [resource]
 bus/1/name = &"Ambient Master"
@@ -25,6 +29,8 @@ bus/4/mute = false
 bus/4/bypass_fx = false
 bus/4/volume_db = 0.0
 bus/4/send = &"Effects Master"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_mlrpj")
+bus/4/effect/0/enabled = true
 bus/5/name = &"Hand Effects"
 bus/5/solo = false
 bus/5/mute = false
@@ -35,7 +41,7 @@ bus/6/name = &"Object Effects"
 bus/6/solo = false
 bus/6/mute = false
 bus/6/bypass_fx = false
-bus/6/volume_db = 0.0
+bus/6/volume_db = -2.71024
 bus/6/send = &"Effects Master"
 bus/7/name = &"Customer Effects"
 bus/7/solo = false

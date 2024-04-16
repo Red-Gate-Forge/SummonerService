@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b55onj4h681xw"]
+
+[ext_resource type="PackedScene" uid="uid://bfeqr33ovmvip" path="res://data/ingrediant/scenes/IngrediantInstance.tscn" id="1_ee52h"]
+[ext_resource type="PackedScene" uid="uid://dtt1sku0ewmin" path="res://meshes/ingrediants/Gear.glb" id="2_uln8r"]
+
+[node name="ingrediant_instance_gear" instance=ExtResource("1_ee52h")]
+initial_scale = 0.05
+destination_scale = 0.3
+
+[node name="ObjectContainer" parent="." index="0"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+
+[node name="Gear" parent="ObjectContainer" index="0" instance=ExtResource("2_uln8r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.128798, 0)

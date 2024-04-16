@@ -15,9 +15,9 @@ func  _ready():
 
 func _on_area_3d_mouse_entered():
 	light.show()
-	table.call("on_ingrediant_select", ingrediant.id, global_position)
+	table.call("on_ingrediant_select", ingrediant, global_position)
 
 
 func _on_area_3d_mouse_exited():
 	light.hide()
-	table.call("on_ingrediant_deselect", ingrediant.id)
+	table.call("on_ingrediant_deselect", ingrediant)

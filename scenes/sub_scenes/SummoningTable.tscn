@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dlidjl5dqbcaf"]
+[gd_scene load_steps=10 format=3 uid="uid://dlidjl5dqbcaf"]
 
 [ext_resource type="Script" path="res://scenes/sub_scenes/summoning_table.gd" id="1_5ql8h"]
 [ext_resource type="PackedScene" uid="uid://6d0glr1odanw" path="res://meshes/scene_objects/summoning_table/summoning_table.glb" id="1_hk0nt"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://dke0vb4yicv4r" path="res://audio/rituals/ingrediant/drawer/close_drawer.wav" id="6_5517y"]
 [ext_resource type="PackedScene" uid="uid://cbmx3s3b0cnmw" path="res://meshes/scene_objects/summoning_table/summoning_circle.glb" id="7_gxv6b"]
 [ext_resource type="PackedScene" uid="uid://bq7emkpbfixox" path="res://meshes/scene_objects/summoning_table/candles.glb" id="8_1krov"]
+[ext_resource type="AudioStream" uid="uid://brxwnrif0642y" path="res://audio/rituals/ingrediant/select_ingrediant.wav" id="8_8m4q7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kgkpm"]
 size = Vector3(1.99005, 0.0705625, 4.43268)
@@ -41,3 +42,25 @@ transform = Transform3D(0.868181, 0, -0.496247, 0, 1, 0, 0.496247, 0, 0.868181, 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000396729, 1.25363, -0.00234985)
 shape = SubResource("BoxShape3D_kgkpm")
+
+[node name="ingrediant_slots" type="Node" parent="."]
+
+[node name="slot1" type="Node3D" parent="ingrediant_slots"]
+transform = Transform3D(-0.846426, 0, 0.532507, 0, 1, 0, -0.532507, 0, -0.846426, 0.305419, 1.29105, 0.366873)
+
+[node name="slot2" type="Node3D" parent="ingrediant_slots"]
+transform = Transform3D(-0.846426, 0, 0.532507, 0, 1, 0, -0.532507, 0, -0.846426, -0.175544, 1.29105, 0.424226)
+
+[node name="slot3" type="Node3D" parent="ingrediant_slots"]
+transform = Transform3D(-0.846426, 0, 0.532507, 0, 1, 0, -0.532507, 0, -0.846426, -0.438499, 1.29105, -0.0382618)
+
+[node name="slot4" type="Node3D" parent="ingrediant_slots"]
+transform = Transform3D(-0.846426, 0, 0.532507, 0, 1, 0, -0.532507, 0, -0.846426, -0.0122837, 1.29105, -0.407328)
+
+[node name="slot5" type="Node3D" parent="ingrediant_slots"]
+transform = Transform3D(-0.846426, 0, 0.532507, 0, 1, 0, -0.532507, 0, -0.846426, 0.375524, 1.29105, -0.214497)
+
+[node name="select_audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_8m4q7")
+volume_db = -20.0
+bus = &"Object Effects"

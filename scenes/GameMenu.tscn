@@ -1,3 +1,124 @@
-[gd_scene format=3 uid="uid://b5u7y4d5cqbr2"]
+[gd_scene load_steps=7 format=3 uid="uid://b5u7y4d5cqbr2"]
+
+[ext_resource type="Script" path="res://scenes/GameMenu.gd" id="1_invck"]
+[ext_resource type="PackedScene" uid="uid://dqdlcrngwsyj4" path="res://meshes/scene_objects/ritual_objects/chain_incense_burner.glb" id="1_u7r5n"]
+[ext_resource type="FontFile" uid="uid://c4mm3of2mc8o5" path="res://addons/phantom_camera/fonts/Nunito-Black.ttf" id="1_wwxuk"]
+[ext_resource type="PackedScene" uid="uid://cxv2hpakde2b7" path="res://meshes/scene_objects/ritual_objects/incense_burner.glb" id="2_nhttu"]
+[ext_resource type="PackedScene" uid="uid://cbmx3s3b0cnmw" path="res://meshes/scene_objects/summoning_table/summoning_circle.glb" id="3_3ilr4"]
+
+[sub_resource type="Environment" id="Environment_1m4li"]
+glow_enabled = true
 
 [node name="GameMenu" type="Node3D"]
+script = ExtResource("1_invck")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1m4li")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50441, 2.74073)
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.556151, 0)
+pixel_size = 0.007
+modulate = Color(1, 0, 0, 1)
+text = "Demonic Summoning Simulator"
+font = ExtResource("1_wwxuk")
+font_size = 48
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.222028, 0)
+text = "by Lucas and Tim"
+font = ExtResource("1_wwxuk")
+
+[node name="Label3D3" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.885016, 0)
+modulate = Color(0.564706, 0.564706, 0.564706, 1)
+text = "<PRESS SPACE TO START>"
+font = ExtResource("1_wwxuk")
+
+[node name="chain_incense_burner" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4714, 0.330651, -1.80579)
+
+[node name="incense_burner" parent="chain_incense_burner" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner2" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.40464, 0.0673552, -1.16622)
+
+[node name="incense_burner" parent="chain_incense_burner2" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner3" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(0.627202, 0, -0.778857, 0, 1, 0, 0.778857, 0, 0.627202, -0.191101, -0.104094, -0.747289)
+
+[node name="incense_burner" parent="chain_incense_burner3" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner4" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.617195, 0.936845, 0.490139)
+
+[node name="incense_burner" parent="chain_incense_burner4" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner5" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.646019, 0.820505, 0.75252)
+
+[node name="incense_burner" parent="chain_incense_burner5" instance=ExtResource("2_nhttu")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+light_color = Color(1, 0, 0, 1)
+
+[node name="chain_incense_burner6" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.34905, 0.330651, -2.04772)
+
+[node name="incense_burner" parent="chain_incense_burner6" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner7" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.526997, 0.0673552, -1.40814)
+
+[node name="incense_burner" parent="chain_incense_burner7" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner8" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.27506, -0.104094, -0.768566)
+
+[node name="incense_burner" parent="chain_incense_burner8" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner9" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(0.71396, 0, 0.700187, 0, 1, 0, -0.700187, 0, 0.71396, 0.349885, 0.936845, -0.577642)
+
+[node name="incense_burner" parent="chain_incense_burner9" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner10" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52367, 0.820505, 0.51059)
+
+[node name="incense_burner" parent="chain_incense_burner10" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner11" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(0.287829, 0, 0.957682, 0, 1, 0, -0.957682, 0, 0.287829, -1.62351, 0.330651, -2.52085)
+
+[node name="incense_burner" parent="chain_incense_burner11" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner12" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(0.287829, 0, 0.957682, 0, 1, 0, -0.957682, 0, 0.287829, -0.183188, 0.0673552, -5.0911)
+
+[node name="incense_burner" parent="chain_incense_burner12" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner13" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(0.287829, 0, 0.957682, 0, 1, 0, -0.957682, 0, 0.287829, -0.0893578, -0.104094, -3.18122)
+
+[node name="incense_burner" parent="chain_incense_burner13" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner14" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(0.287829, 0, 0.957682, 0, 1, 0, -0.957682, 0, 0.287829, 0.815187, 0.936845, -3.9688)
+
+[node name="incense_burner" parent="chain_incense_burner14" instance=ExtResource("2_nhttu")]
+
+[node name="chain_incense_burner15" parent="." instance=ExtResource("1_u7r5n")]
+transform = Transform3D(0.287829, 0, 0.957682, 0, 1, 0, -0.957682, 0, 0.287829, 1.06411, 0.820505, -2.57495)
+
+[node name="incense_burner" parent="chain_incense_burner15" instance=ExtResource("2_nhttu")]
+
+[node name="summoning_circle" parent="." instance=ExtResource("3_3ilr4")]
+transform = Transform3D(-1, 3.82137e-15, 8.74228e-08, 8.74228e-08, 4.37114e-08, 1, 0, 1, -4.37114e-08, -0.033586, 0.522347, -0.239096)
+visible = false
+
+[node name="summoning_circle2" parent="." instance=ExtResource("3_3ilr4")]
+transform = Transform3D(-5, -7.54979e-07, -3.30012e-14, 0, -2.18557e-07, 5, -7.54979e-07, 5, 2.18557e-07, -0.033586, 0.522347, -2.22339)

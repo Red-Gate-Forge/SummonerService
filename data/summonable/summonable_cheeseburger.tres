@@ -26,6 +26,8 @@ count = 4
 [resource]
 script = ExtResource("1_pjhjf")
 id = 1
+spawnable_path = "res://data/summonable/scenes/summonable_instance_cheeseburger.tscn"
+icon_path = "res://data/summonable/icons/cheeseburger_icon.png"
 name = "Cheeseburger"
 description = "A Cheeseburger..."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_2fxwn"), SubResource("Resource_p8sp4"), SubResource("Resource_8kw1x"), SubResource("Resource_8ehyi")])

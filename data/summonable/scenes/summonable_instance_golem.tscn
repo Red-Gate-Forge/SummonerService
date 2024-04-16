@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bxl8h12dqdh6h"]
+
+[ext_resource type="PackedScene" uid="uid://dveko5tqg0kix" path="res://data/summonable/scenes/summonable_instance.tscn" id="1_d6eds"]
+[ext_resource type="PackedScene" uid="uid://bke4cuolje3ic" path="res://meshes/summonables/Golem.glb" id="2_8ge7y"]
+
+[node name="SummonableInstance_Golem" instance=ExtResource("1_d6eds")]
+
+[node name="Golem" parent="." index="0" instance=ExtResource("2_8ge7y")]
+transform = Transform3D(-0.445, 0, 6.71931e-08, 0, 0.445, 0, -6.71931e-08, 0, -0.445, 0, 0, 0)

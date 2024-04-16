@@ -26,6 +26,8 @@ ingrediant = ExtResource("6_8r2pi")
 [resource]
 script = ExtResource("1_ly5ay")
 id = 9
+spawnable_path = "res://data/summonable/scenes/summonable_instance_holy_sword.tscn"
+icon_path = "res://data/summonable/icons/sword_icon.png"
 name = "Holy Sword"
-description = "A holy sword. Best goes with a previouse summoned hero. But who am I to give advice here...."
+description = "A holy sword. Best goes with a summoned hero. But that spell must be missing...."
 steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_70sgk"), SubResource("Resource_2lddk"), SubResource("Resource_0yogd"), SubResource("Resource_iwqe1")])

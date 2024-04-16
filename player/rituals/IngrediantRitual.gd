@@ -1,5 +1,7 @@
 extends Ritual
 
+@onready var place_audio: AudioStreamPlayer = $place_audio
+
 var ingrediant: RitualUtils.Ingrediant
 
 func _on_ingrediant_selection_change(new_selection:RitualUtils.Ingrediant):
@@ -17,6 +19,7 @@ func begin(): #override
 func end(): #override
     super.end()
     if ingrediant != RitualUtils.Ingrediant.NONE:
+        place_audio.play()
         print("Selected ingrediant: " + str(ingrediant))
         performed = true
 

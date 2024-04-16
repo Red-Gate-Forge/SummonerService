@@ -7,3 +7,6 @@ func get_type() -> Ritual.Type:
 
 func get_content():
     return ingrediant
+
+func get_instruction_text() -> String:
+    return ("- Add ingredient: " + ingrediant.name)

@@ -1,19 +1,29 @@
-[gd_scene load_steps=15 format=3 uid="uid://jewydbggktfm"]
+[gd_scene load_steps=25 format=3 uid="uid://jewydbggktfm"]
 
 [ext_resource type="PackedScene" uid="uid://cvk0qlva6vk50" path="res://meshes/scene_objects/summoning_table/summoning_table_drawer.glb" id="1_1oy2a"]
 [ext_resource type="PackedScene" uid="uid://dqc7hjweenaym" path="res://meshes/scene_objects/summoning_table/summoning_table_drawer_inset.glb" id="2_xng7k"]
 [ext_resource type="PackedScene" uid="uid://jwcel7sgioey" path="res://scenes/sub_scenes/drawer_ingrediant.tscn" id="3_ur8f4"]
 [ext_resource type="Resource" uid="uid://bln202avvep85" path="res://data/ingrediant/ingridiant_brick.tres" id="4_op2oq"]
 [ext_resource type="Resource" uid="uid://bk4xv0w6brai0" path="res://data/ingrediant/ingrediant_incense_sticks.tres" id="5_fs0fr"]
+[ext_resource type="PackedScene" uid="uid://dtt1sku0ewmin" path="res://meshes/ingrediants/Gear.glb" id="5_jo5va"]
 [ext_resource type="Resource" uid="uid://c051mnm6b3typ" path="res://data/ingrediant/ingrediant_gear.tres" id="5_yf7up"]
 [ext_resource type="Resource" uid="uid://ba01mkn0tct8i" path="res://data/ingrediant/ingrediant_anvil.tres" id="6_s42tg"]
+[ext_resource type="PackedScene" uid="uid://dqsb0hhmp5oc2" path="res://meshes/ingrediants/Brick.glb" id="7_f5gb0"]
 [ext_resource type="Resource" uid="uid://cxbbymofgg8wr" path="res://data/ingrediant/ingrediant_plastic_straws.tres" id="7_otxre"]
 [ext_resource type="Resource" uid="uid://lict0mwyxlaf" path="res://data/ingrediant/ingrediant_crystal_ball.tres" id="8_28def"]
-[ext_resource type="Resource" uid="uid://cpq0tpj45omb4" path="res://data/ingrediant/ingrediant_herbs.tres" id="9_jbf5u"]
+[ext_resource type="PackedScene" uid="uid://dfanitjefquoa" path="res://meshes/ingrediants/Plastic Straws.glb" id="9_ntay1"]
 [ext_resource type="Resource" uid="uid://cg8jhm6kt8jmq" path="res://data/ingrediant/ingrediant_uran.tres" id="10_7i7iq"]
+[ext_resource type="PackedScene" uid="uid://j7sil73f12l6" path="res://meshes/ingrediants/Anvil.glb" id="11_gtxwt"]
 [ext_resource type="Resource" uid="uid://fn34pc571afq" path="res://data/ingrediant/ingrediant_soul_essence.tres" id="11_knyvs"]
 [ext_resource type="Resource" uid="uid://de65khjurll7m" path="res://data/ingrediant/ingrediant_voodoo_doll.tres" id="12_a81hw"]
+[ext_resource type="PackedScene" uid="uid://e68a6vecg4c0" path="res://meshes/ingrediants/Christal Ball.glb" id="13_kpq28"]
+[ext_resource type="Resource" uid="uid://bq17io8xntdnm" path="res://data/ingrediant/ingrediant_ouija_board.tres" id="14_nh7tr"]
 [ext_resource type="PackedScene" uid="uid://d1ovlgegwmygv" path="res://meshes/ingrediants/voodoo_puppet.glb" id="14_taje5"]
+[ext_resource type="PackedScene" uid="uid://c3b2hfed41wjx" path="res://meshes/ingrediants/Ouija Board.glb" id="15_ckl1k"]
+[ext_resource type="PackedScene" uid="uid://dc0330cnof7wr" path="res://meshes/ingrediants/Ouija Tool.glb" id="16_qvayh"]
+[ext_resource type="PackedScene" uid="uid://dpuy8kw6dnyuk" path="res://meshes/ingrediants/Smokesticks.glb" id="16_x5p52"]
+[ext_resource type="PackedScene" uid="uid://c3sm8lxwfuqyi" path="res://meshes/ingrediants/Soulstone.glb" id="18_o7meo"]
+[ext_resource type="PackedScene" uid="uid://df33cgixqiehg" path="res://meshes/ingrediants/Uranium.glb" id="20_aaip0"]
 
 [node name="drawer_container" type="Node3D"]
 
@@ -26,37 +36,136 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.65143, 0.122055, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.952607, -0.0772869, -0.565237)
 ingrediant = ExtResource("5_yf7up")
 
+[node name="Gear" parent="DrawerIngrediant_Gear" instance=ExtResource("5_jo5va")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0.0140549, 0.00819938, -0.0424238)
+
+[node name="Gear2" parent="DrawerIngrediant_Gear" instance=ExtResource("5_jo5va")]
+transform = Transform3D(0.15, 0, 0, 0, 0.142971, -0.0453779, 0, 0.0453779, 0.142971, 0.0200702, 0.0307132, 0.0401744)
+
+[node name="Gear3" parent="DrawerIngrediant_Gear" instance=ExtResource("5_jo5va")]
+transform = Transform3D(0.124563, -0.083493, 0.00359721, 0.0835705, 0.124448, -0.0053617, -5.58794e-10, 0.0064566, 0.149861, -0.0565854, 0.069636, -0.0115321)
+
 [node name="DrawerIngrediant_Brick" parent="." instance=ExtResource("3_ur8f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.952607, -0.0772869, -0.284223)
 ingrediant = ExtResource("4_op2oq")
+
+[node name="Brick" parent="DrawerIngrediant_Brick" instance=ExtResource("7_f5gb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0660593, 0.0181463, 4.90844e-05)
+
+[node name="Brick2" parent="DrawerIngrediant_Brick" instance=ExtResource("7_f5gb0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0608112, 0.0181463, 4.90844e-05)
+
+[node name="Brick3" parent="DrawerIngrediant_Brick" instance=ExtResource("7_f5gb0")]
+transform = Transform3D(0.994209, 0, -0.107461, 0, 1, 0, 0.107461, 0, 0.994209, -0.00685531, 0.093092, -0.00248489)
 
 [node name="DrawerIngrediant_Plastic_Straws" parent="." instance=ExtResource("3_ur8f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.952607, -0.0772869, 0.00181007)
 ingrediant = ExtResource("7_otxre")
 
+[node name="Plastic Straws" parent="DrawerIngrediant_Plastic_Straws" instance=ExtResource("9_ntay1")]
+transform = Transform3D(0.889297, 0.116619, 0, -0.457331, 0.226771, 0, 0, 0, 1, 0.052765, 0.068825, -0.0650121)
+
+[node name="Plastic Straws2" parent="DrawerIngrediant_Plastic_Straws" instance=ExtResource("9_ntay1")]
+transform = Transform3D(0.889297, 0.116619, 0, -0.457331, 0.226771, 0, 0, 0, 1, 0.052765, 0.068825, 0.017137)
+
+[node name="Plastic Straws3" parent="DrawerIngrediant_Plastic_Straws" instance=ExtResource("9_ntay1")]
+transform = Transform3D(0.444648, 0.155492, -1.87634e-09, -0.0120153, 0.0158876, -0.499309, -0.228349, 0.301943, 0.0262726, -0.0412169, -0.0177636, -0.00912963)
+
+[node name="Plastic Straws4" parent="DrawerIngrediant_Plastic_Straws" instance=ExtResource("9_ntay1")]
+transform = Transform3D(0.444648, 0.155492, -1.87634e-09, -0.0120153, 0.0158876, -0.499309, -0.228349, 0.301943, 0.0262726, -0.0692585, -0.0177636, 0.018424)
+
 [node name="DrawerIngrediant_Anvil" parent="." instance=ExtResource("3_ur8f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.952607, -0.0772869, 0.282825)
 ingrediant = ExtResource("6_s42tg")
+
+[node name="Anvil" parent="DrawerIngrediant_Anvil" instance=ExtResource("11_gtxwt")]
+transform = Transform3D(0.0243813, 0, -0.499405, -0.0825374, 0.493124, -0.00402953, 0.492537, 0.0826357, 0.024046, 0.0236101, -0.0145842, 0.00256267)
 
 [node name="DrawerIngrediant_Ball_of_Fortune" parent="." instance=ExtResource("3_ur8f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.952607, -0.0772869, 0.573876)
 ingrediant = ExtResource("8_28def")
 
-[node name="DrawerIngrediant_Herbs" parent="." instance=ExtResource("3_ur8f4")]
+[node name="Christal Ball" parent="DrawerIngrediant_Ball_of_Fortune" instance=ExtResource("13_kpq28")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.0659315, -0.0287122, 0.0594929)
+
+[node name="Christal Ball2" parent="DrawerIngrediant_Ball_of_Fortune" instance=ExtResource("13_kpq28")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0.0476373, -0.0287122, -0.0672272)
+
+[node name="Christal Ball3" parent="DrawerIngrediant_Ball_of_Fortune" instance=ExtResource("13_kpq28")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -0.05372, -0.0287122, 0.0117952)
+
+[node name="DrawerIngrediant_Ouija_Board" parent="." instance=ExtResource("3_ur8f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659047, -0.0772869, -0.565237)
-ingrediant = ExtResource("9_jbf5u")
+ingrediant = ExtResource("14_nh7tr")
+
+[node name="Ouija Board" parent="DrawerIngrediant_Ouija_Board" instance=ExtResource("15_ckl1k")]
+transform = Transform3D(0.0727011, -0.337253, 0, 0.337253, 0.0727011, 0, 0, 0, 0.335953, 0.0932891, 0.0684621, -0.00356925)
+
+[node name="Ouija Board2" parent="DrawerIngrediant_Ouija_Board" instance=ExtResource("15_ckl1k")]
+transform = Transform3D(0.0727011, -0.337253, 0, 0.337253, 0.0727011, 0, 0, 0, 0.335953, 0.0774519, 0.0684621, -0.00356925)
+
+[node name="Ouija Board3" parent="DrawerIngrediant_Ouija_Board" instance=ExtResource("15_ckl1k")]
+transform = Transform3D(0.0727011, -0.337253, 0, 0.337253, 0.0727011, 0, 0, 0, 0.335953, 0.0590731, 0.0684621, -0.00356925)
+
+[node name="Ouija Board4" parent="DrawerIngrediant_Ouija_Board" instance=ExtResource("15_ckl1k")]
+transform = Transform3D(0.0727011, -0.337253, 0, 0.337253, 0.0727011, 0, 0, 0, 0.335953, 0.0389387, 0.0657822, -0.00230569)
+
+[node name="Ouija Tool" parent="DrawerIngrediant_Ouija_Board" instance=ExtResource("16_qvayh")]
+transform = Transform3D(0.255395, -0.966837, 0, 0.966837, 0.255395, 0, 0, 0, 1, 0.0249049, 0.10411, -0.0410156)
+
+[node name="Ouija Tool2" parent="DrawerIngrediant_Ouija_Board" instance=ExtResource("16_qvayh")]
+transform = Transform3D(0.0798488, -0.458223, -0.885244, -0.246453, 0.851432, -0.462951, 0.96586, 0.255137, -0.0449446, -0.0439036, 0.0441635, 0.0353074)
 
 [node name="DrawerIngrediant_Incense_Sticks" parent="." instance=ExtResource("3_ur8f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659047, -0.0772869, -0.284223)
 ingrediant = ExtResource("5_fs0fr")
 
+[node name="Smokesticks" parent="DrawerIngrediant_Incense_Sticks" instance=ExtResource("16_x5p52")]
+transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, 0.0683098, -0.0246375, -0.0652006)
+
+[node name="Smokesticks2" parent="DrawerIngrediant_Incense_Sticks" instance=ExtResource("16_x5p52")]
+transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, 0.0173807, -0.0246375, 0.030272)
+
+[node name="Smokesticks3" parent="DrawerIngrediant_Incense_Sticks" instance=ExtResource("16_x5p52")]
+transform = Transform3D(1.78, 0, 0, 0, 1.78, 0, 0, 0, 1.78, -0.0482535, -0.0246375, -0.0528198)
+
 [node name="DrawerIngrediant_Soul_Essence" parent="." instance=ExtResource("3_ur8f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659047, -0.0772869, 0.00181007)
 ingrediant = ExtResource("11_knyvs")
 
+[node name="Soulstone" parent="DrawerIngrediant_Soul_Essence" instance=ExtResource("18_o7meo")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.0706094, 0.0425245, -0.0653323)
+
+[node name="Soulstone2" parent="DrawerIngrediant_Soul_Essence" instance=ExtResource("18_o7meo")]
+transform = Transform3D(0.2, 0, 0, 0, 0.0252225, -0.198403, 0, 0.198403, 0.0252225, 0.0705229, 0.0173698, 0.0598498)
+
+[node name="Soulstone3" parent="DrawerIngrediant_Soul_Essence" instance=ExtResource("18_o7meo")]
+transform = Transform3D(0.2, 0, 0, 0, -0.025638, 0.19835, 0, -0.19835, -0.025638, -0.0387043, 0.0219852, -0.0305625)
+
 [node name="DrawerIngrediant_Uran" parent="." instance=ExtResource("3_ur8f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659047, -0.0772869, 0.282825)
 ingrediant = ExtResource("10_7i7iq")
+
+[node name="Uranium" parent="DrawerIngrediant_Uran" instance=ExtResource("20_aaip0")]
+transform = Transform3D(-4.37114e-08, 0.675, 0, -1, -2.95052e-08, 0, 0, 0, 1, 0.0103156, 0.00518741, -0.0926888)
+
+[node name="Uranium2" parent="DrawerIngrediant_Uran" instance=ExtResource("20_aaip0")]
+transform = Transform3D(-4.37114e-08, 0.675, 0, -1, -2.95052e-08, 0, 0, 0, 1, 0.0103156, 0.00518741, -0.0391016)
+
+[node name="Uranium3" parent="DrawerIngrediant_Uran" instance=ExtResource("20_aaip0")]
+transform = Transform3D(-4.37114e-08, 0.675, 0, -1, -2.95052e-08, 0, 0, 0, 1, 0.0103156, 0.00518741, 0.01316)
+
+[node name="Uranium4" parent="DrawerIngrediant_Uran" instance=ExtResource("20_aaip0")]
+transform = Transform3D(-4.37114e-08, 0.675, 0, -1, -2.95052e-08, 0, 0, 0, 1, 0.0103156, 0.029302, 0.0555767)
+
+[node name="Uranium5" parent="DrawerIngrediant_Uran" instance=ExtResource("20_aaip0")]
+transform = Transform3D(-4.37114e-08, 0.675, 0, -1, -2.95052e-08, 0, 0, 0, 1, 0.0103156, 0.00518741, 0.103797)
+
+[node name="Uranium6" parent="DrawerIngrediant_Uran" instance=ExtResource("20_aaip0")]
+transform = Transform3D(-4.37114e-08, 0.675, 0, -1, -2.95052e-08, 0, 0, 0, 1, 0.0103156, 0.0455723, -0.0645877)
+
+[node name="Uranium7" parent="DrawerIngrediant_Uran" instance=ExtResource("20_aaip0")]
+transform = Transform3D(-4.37114e-08, 0.675, 0, -1, -2.95052e-08, 0, 0, 0, 1, 0.0103156, 0.0455723, -0.0153666)
 
 [node name="DrawerIngrediant_Voodoo_Doll" parent="." instance=ExtResource("3_ur8f4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.659047, -0.0772869, 0.573876)

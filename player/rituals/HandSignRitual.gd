@@ -1,13 +1,18 @@
 extends Ritual
 
-var hand_signs: Array[RitualUtils.HandSign] = []
+@export_file("*.tscn") var anim_hands_path: String
 
+@onready var hand_slot: Node3D = get_node("../../hand_slot")
+
+var hand_signs: Array[RitualUtils.HandSign] = []
+var hands: Node3D
 
 
 func perform_hand_sign(hand_sign: RitualUtils.HandSign):
     performed = true
     hand_signs.append(hand_sign)
     print(hand_sign)
+    hands.call("do_hand_sign", hand_sign)
     await get_tree().create_timer(0.5).timeout
 
 func _input(event):
@@ -29,9 +34,14 @@ func begin(): #override
     super.begin()
     hand_signs.clear();
 
+    var hands_scene = load(anim_hands_path) as PackedScene
+    hands = hands_scene.instantiate()
+    hand_slot.add_child(hands)
+
 func end(): #override
     super.end()
     print("Hand Signs Performed: " + str(hand_signs))
+    hands.queue_free()
 
 func get_type() -> Ritual.Type: #override
     return Type.HAND_SIGN

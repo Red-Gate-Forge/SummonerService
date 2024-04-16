@@ -7,3 +7,4 @@ script = ExtResource("1_vbr7n")
 id = 1
 name = "Brick"
 description = "A simple Brick"
+object_path = "res://data/ingrediant/scenes/ingrediant_instance_brick.tscn"

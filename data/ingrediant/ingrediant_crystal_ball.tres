@@ -7,3 +7,4 @@ script = ExtResource("1_i6va5")
 id = 8
 name = "Ball of Fortune"
 description = "Biggest Scam ever! Can tell you when you will die but not whats next weeks lottery numbers are!"
+object_path = "res://data/ingrediant/scenes/ingrediant_instance_crystal_ball.tscn"

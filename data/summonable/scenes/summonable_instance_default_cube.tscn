@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://cg0o0jdpm88ud"]
+
+[ext_resource type="PackedScene" uid="uid://dveko5tqg0kix" path="res://data/summonable/scenes/summonable_instance.tscn" id="1_xl683"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t26sc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ntrxn"]
+
+[node name="SummonableInstance_Default_Cube" instance=ExtResource("1_xl683")]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.461, 0)
+mesh = SubResource("BoxMesh_t26sc")
+material = SubResource("StandardMaterial3D_ntrxn")

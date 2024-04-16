@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://beyhysql2xtc6"]
+
+[ext_resource type="PackedScene" uid="uid://bfeqr33ovmvip" path="res://data/ingrediant/scenes/IngrediantInstance.tscn" id="1_t14lj"]
+[ext_resource type="PackedScene" uid="uid://c3sm8lxwfuqyi" path="res://meshes/ingrediants/Soulstone.glb" id="2_gmu7s"]
+
+[node name="ingrediant_instance_brick" instance=ExtResource("1_t14lj")]
+initial_scale = 0.1
+destination_scale = 0.3
+
+[node name="ObjectContainer" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Soulstone" parent="ObjectContainer" index="0" instance=ExtResource("2_gmu7s")]
+transform = Transform3D(0.936947, 0.349472, -4.16741e-09, 0, 1.19249e-08, 1, 0.349472, -0.936947, 1.1173e-08, 0, 0.212326, 0)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b101s2xut1yoe"]
+
+[ext_resource type="PackedScene" uid="uid://bfeqr33ovmvip" path="res://data/ingrediant/scenes/IngrediantInstance.tscn" id="1_7eubh"]
+[ext_resource type="PackedScene" uid="uid://df33cgixqiehg" path="res://meshes/ingrediants/Uranium.glb" id="2_wnjto"]
+
+[node name="ingrediant_instance_uran" instance=ExtResource("1_7eubh")]
+initial_scale = 0.5
+
+[node name="ObjectContainer" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Uranium" parent="ObjectContainer" index="0" instance=ExtResource("2_wnjto")]
+transform = Transform3D(-4.09566e-08, -0.936978, -0.34939, 1, -4.37114e-08, 0, -1.52723e-08, -0.34939, 0.936978, 0, 0.0241562, 0)

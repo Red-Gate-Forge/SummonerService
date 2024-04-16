@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://csdipjxv7jhj"]
+
+[ext_resource type="PackedScene" uid="uid://dveko5tqg0kix" path="res://data/summonable/scenes/summonable_instance.tscn" id="1_sin75"]
+[ext_resource type="PackedScene" uid="uid://riti05g7isrk" path="res://meshes/summonables/greater_demon.glb" id="2_ilitc"]
+
+[node name="SummonableInstance_Greater_Demon" instance=ExtResource("1_sin75")]
+transform = Transform3D(0.65, 0, 0, 0, 0.65, 0, 0, 0, 0.65, 0, 0, 0)
+
+[node name="greater_demon" parent="." index="0" instance=ExtResource("2_ilitc")]

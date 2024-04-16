@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfeqr33ovmvip"]
+
+[ext_resource type="Script" path="res://data/ingrediant/scenes/IngrediantInstance.gd" id="1_e4l5t"]
+
+[node name="IngrediantInstance" type="Node3D"]
+script = ExtResource("1_e4l5t")
+
+[node name="ObjectContainer" type="Node3D" parent="."]

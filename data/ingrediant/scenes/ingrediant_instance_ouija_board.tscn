@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkey878exhabg"]
+
+[ext_resource type="PackedScene" uid="uid://bfeqr33ovmvip" path="res://data/ingrediant/scenes/IngrediantInstance.tscn" id="1_jxy8d"]
+[ext_resource type="PackedScene" uid="uid://c3b2hfed41wjx" path="res://meshes/ingrediants/Ouija Board.glb" id="2_76ts0"]
+[ext_resource type="PackedScene" uid="uid://dc0330cnof7wr" path="res://meshes/ingrediants/Ouija Tool.glb" id="3_cfe2n"]
+
+[node name="ingrediant_instance_ouija_board" instance=ExtResource("1_jxy8d")]
+initial_scale = 0.1
+destination_scale = 0.4
+
+[node name="ObjectContainer" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Ouija Board" parent="ObjectContainer" index="0" instance=ExtResource("2_76ts0")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.0100631, 0)
+
+[node name="Ouija Tool" parent="ObjectContainer/Ouija Board" index="1" instance=ExtResource("3_cfe2n")]
+transform = Transform3D(0.859607, -0.0172858, 0.510663, 0.0201048, 0.999798, 0, -0.51056, 0.0102668, 0.859781, 0, 0.0143433, 0.140504)

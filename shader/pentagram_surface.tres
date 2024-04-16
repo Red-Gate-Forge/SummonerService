@@ -1,0 +1,136 @@
+[gd_resource type="VisualShader" load_steps=13 format=3 uid="uid://7g0gnnn1cvxj"]
+
+[sub_resource type="VisualShaderNodeVec3Constant" id="VisualShaderNodeVec3Constant_j64jn"]
+constant = Vector3(0, 0, 1)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_73egs"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(3, 3, 3)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec3Constant" id="VisualShaderNodeVec3Constant_kpbhq"]
+constant = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_lywmt"]
+constant = 10.0
+
+[sub_resource type="VisualShaderNodeTexture2DParameter" id="VisualShaderNodeTexture2DParameter_gkxjt"]
+parameter_name = "PentagramMask"
+texture_type = 1
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_3wdws"]
+source = 5
+
+[sub_resource type="VisualShaderNodeVectorDecompose" id="VisualShaderNodeVectorDecompose_537d4"]
+default_input_values = [0, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeVectorCompose" id="VisualShaderNodeVectorCompose_x2t56"]
+
+[sub_resource type="VisualShaderNodeVec3Parameter" id="VisualShaderNodeVec3Parameter_mqg2r"]
+parameter_name = "pentagram_color"
+qualifier = 1
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_q2jdj"]
+operator = 2
+
+[sub_resource type="VisualShaderNodeMix" id="VisualShaderNodeMix_2n8sa"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(1, 1, 1), 2, Vector3(0.5, 0.5, 0.5)]
+op_type = 3
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_f83qq"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(3, 3, 3)]
+operator = 2
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D PentagramMask : source_color;
+global uniform vec3 pentagram_color;
+
+
+
+void fragment() {
+	vec4 n_out3p0;
+// Texture2D:3
+	n_out3p0 = texture(PentagramMask, UV);
+
+
+// VectorDecompose:4
+	float n_out4p0 = n_out3p0.x;
+	float n_out4p1 = n_out3p0.y;
+	float n_out4p2 = n_out3p0.z;
+	float n_out4p3 = n_out3p0.w;
+
+
+// VectorCompose:5
+	vec3 n_out5p0 = vec3(n_out4p0, n_out4p1, n_out4p2);
+
+
+// Vector3Constant:12
+	vec3 n_out12p0 = vec3(0.500000, 0.500000, 0.500000);
+
+
+// VectorOp:11
+	vec3 n_out11p0 = n_out5p0 * n_out12p0;
+
+
+// Vector3Parameter:6
+	vec3 n_out6p0 = pentagram_color;
+
+
+// Mix:8
+	vec3 n_out8p0 = mix(n_out11p0, n_out6p0, n_out6p0);
+
+
+// VectorOp:7
+	vec3 n_out7p0 = n_out11p0 * n_out6p0;
+
+
+// FloatConstant:13
+	float n_out13p0 = 10.000000;
+
+
+// VectorOp:9
+	vec3 n_out9p0 = n_out7p0 * vec3(n_out13p0);
+
+
+// Vector3Constant:10
+	vec3 n_out10p0 = vec3(0.000000, 0.000000, 1.000000);
+
+
+// Output:0
+	ALBEDO = n_out8p0;
+	ALPHA = n_out4p3;
+	EMISSION = n_out9p0;
+	NORMAL = n_out10p0;
+
+
+}
+"
+nodes/fragment/0/position = Vector2(960, 180)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture2DParameter_gkxjt")
+nodes/fragment/2/position = Vector2(-760, 220)
+nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_3wdws")
+nodes/fragment/3/position = Vector2(-380, 220)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorDecompose_537d4")
+nodes/fragment/4/position = Vector2(0, 300)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorCompose_x2t56")
+nodes/fragment/5/position = Vector2(280, 300)
+nodes/fragment/6/node = SubResource("VisualShaderNodeVec3Parameter_mqg2r")
+nodes/fragment/6/position = Vector2(80, 600)
+nodes/fragment/7/node = SubResource("VisualShaderNodeVectorOp_q2jdj")
+nodes/fragment/7/position = Vector2(580, 460)
+nodes/fragment/8/node = SubResource("VisualShaderNodeMix_2n8sa")
+nodes/fragment/8/position = Vector2(600, 320)
+nodes/fragment/9/node = SubResource("VisualShaderNodeVectorOp_f83qq")
+nodes/fragment/9/position = Vector2(740, 460)
+nodes/fragment/10/node = SubResource("VisualShaderNodeVec3Constant_j64jn")
+nodes/fragment/10/position = Vector2(560, 740)
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorOp_73egs")
+nodes/fragment/11/position = Vector2(440, 280)
+nodes/fragment/12/node = SubResource("VisualShaderNodeVec3Constant_kpbhq")
+nodes/fragment/12/position = Vector2(0, 480)
+nodes/fragment/13/node = SubResource("VisualShaderNodeFloatConstant_lywmt")
+nodes/fragment/13/position = Vector2(520, 640)
+nodes/fragment/connections = PackedInt32Array(2, 0, 3, 2, 3, 0, 4, 0, 4, 0, 5, 0, 4, 1, 5, 1, 4, 2, 5, 2, 6, 0, 7, 1, 4, 3, 0, 1, 6, 0, 8, 2, 6, 0, 8, 1, 8, 0, 0, 0, 7, 0, 9, 0, 9, 0, 0, 5, 10, 0, 0, 8, 5, 0, 11, 0, 12, 0, 11, 1, 11, 0, 8, 0, 11, 0, 7, 0, 13, 0, 9, 1)

@@ -1,9 +1,12 @@
 class_name RitualUtils 
 
+static func set_pentagram_color(color: Vector3):
+    RenderingServer.global_shader_parameter_set("pentagram_color", color)
+
 enum HandSign { UP, DOWN, LEFT, RIGHT }
 
 enum TonePitch { ASTRI, SAK, DOX }
-enum ToneLenght { WHOLE, HALF, QUARTER }
+enum ToneLenght { WHOLE, HALF, QUARTER, CRAP }
 
 enum Summonable {
     NONE,
@@ -16,7 +19,8 @@ enum Summonable {
     LESSER_DEMON,
     HERO,
     HOLY_SWORD,
-    MINI_NUKE
+    MINI_NUKE,
+    ENEGRY_DRINK
 }
 
 enum Ingrediant {

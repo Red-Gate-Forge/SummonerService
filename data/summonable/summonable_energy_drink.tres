@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Summonable" load_steps=19 format=3 uid="uid://obtml1up0dms"]
+
+[ext_resource type="Script" path="res://data/summonable/Summonable.gd" id="1_aifxd"]
+[ext_resource type="Resource" uid="uid://cxbbymofgg8wr" path="res://data/ingrediant/ingrediant_plastic_straws.tres" id="2_3wlwh"]
+[ext_resource type="Script" path="res://data/summoning_steps/IngrediantSummonStep.gd" id="3_xajvd"]
+[ext_resource type="Script" path="res://data/summoning_steps/IncenseSummonStep.gd" id="4_pt2fd"]
+[ext_resource type="Resource" uid="uid://fn34pc571afq" path="res://data/ingrediant/ingrediant_soul_essence.tres" id="5_vgkaj"]
+[ext_resource type="Script" path="res://data/summoning_steps/HummingSummonStep.gd" id="6_ksncm"]
+[ext_resource type="Script" path="res://data/summoning_steps/HummingSummonSubStep.gd" id="7_vwx5d"]
+[ext_resource type="Resource" uid="uid://cg8jhm6kt8jmq" path="res://data/ingrediant/ingrediant_uran.tres" id="8_gll5v"]
+[ext_resource type="Script" path="res://data/summoning_steps/BloodSacraficeSummonStep.gd" id="9_fr2ku"]
+
+[sub_resource type="Resource" id="Resource_pmd22"]
+script = ExtResource("3_xajvd")
+ingrediant = ExtResource("2_3wlwh")
+
+[sub_resource type="Resource" id="Resource_l8pbt"]
+script = ExtResource("4_pt2fd")
+count = 5
+
+[sub_resource type="Resource" id="Resource_1mhx7"]
+script = ExtResource("3_xajvd")
+ingrediant = ExtResource("5_vgkaj")
+
+[sub_resource type="Resource" id="Resource_wibm2"]
+script = ExtResource("7_vwx5d")
+tone_pitch = 0
+tone_lenght = 0
+
+[sub_resource type="Resource" id="Resource_q031p"]
+script = ExtResource("7_vwx5d")
+tone_pitch = 1
+tone_lenght = 0
+
+[sub_resource type="Resource" id="Resource_ue3vi"]
+script = ExtResource("7_vwx5d")
+tone_pitch = 2
+tone_lenght = 0
+
+[sub_resource type="Resource" id="Resource_q6rtp"]
+script = ExtResource("6_ksncm")
+tones = Array[ExtResource("7_vwx5d")]([SubResource("Resource_wibm2"), SubResource("Resource_q031p"), SubResource("Resource_ue3vi")])
+
+[sub_resource type="Resource" id="Resource_kps0v"]
+script = ExtResource("3_xajvd")
+ingrediant = ExtResource("8_gll5v")
+
+[sub_resource type="Resource" id="Resource_d3gq0"]
+script = ExtResource("9_fr2ku")
+count = 9
+
+[resource]
+script = ExtResource("1_aifxd")
+id = 0
+name = "Energy Drink"
+description = "A common sweet drink with much sugar and many horsepower worth of energy. To let you sit even through the hardest jam."
+steps = Array[Resource("res://data/summoning_steps/SummonStep.gd")]([SubResource("Resource_pmd22"), SubResource("Resource_l8pbt"), SubResource("Resource_1mhx7"), SubResource("Resource_q6rtp"), SubResource("Resource_kps0v"), SubResource("Resource_d3gq0")])

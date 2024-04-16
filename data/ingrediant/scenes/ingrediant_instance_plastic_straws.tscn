@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddeaobmtuvk4b"]
+
+[ext_resource type="PackedScene" uid="uid://bfeqr33ovmvip" path="res://data/ingrediant/scenes/IngrediantInstance.tscn" id="1_ls6bo"]
+[ext_resource type="PackedScene" uid="uid://dfanitjefquoa" path="res://meshes/ingrediants/Plastic Straws.glb" id="2_h8nay"]
+
+[node name="ingrediant_instance_brick" instance=ExtResource("1_ls6bo")]
+initial_scale = 0.5
+destination_scale = 0.8
+
+[node name="ObjectContainer" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Plastic Straws" parent="ObjectContainer" index="0" instance=ExtResource("2_h8nay")]
+transform = Transform3D(0.787699, 0.61606, 2.69288e-08, 0, -4.37114e-08, 1, 0.61606, -0.787699, -3.44314e-08, 0, 0.0295264, 0)
